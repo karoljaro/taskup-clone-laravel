@@ -4,6 +4,7 @@
 namespace App\core\domain\Entities;
 
 use App\core\domain\Enums\TaskStatus;
+use App\core\domain\VO\TaskId;
 use DateTimeImmutable;
 
 final class Task
@@ -12,7 +13,7 @@ final class Task
     private DateTimeImmutable $updatedAt;
     private TaskStatus $status;
     public function __construct(
-        private readonly string $id, // TODO: Create brand ID
+        private readonly TaskId $id,
         private string $title,
         private string $description
     ) {
@@ -32,7 +33,7 @@ final class Task
 
 //    ==========================[ GETTERS ]==========================
 
-    public function getId(): string
+    public function getId(): TaskId
     {
         return $this->id;
     }
