@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(): add Task entity with properties and methods for task management">
-      <change afterPath="$PROJECT_DIR$/app/core/domain/VO/TaskId.php" afterDir="false" />
+    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(): introduce TaskId value object for task identification">
+      <change afterPath="$PROJECT_DIR$/app/core/domain/Exceptions/DomainError.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/core/domain/Entities/Task.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/domain/Entities/Task.php" afterDir="false" />
     </list>
@@ -265,7 +265,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765815248948</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat(): introduce TaskId value object for task identification">
+      <option name="closed" value="true" />
+      <created>1765816710253</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1765816710253</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,7 +286,8 @@
     <MESSAGE value="feat(): add Home component and update routing to use it" />
     <MESSAGE value="feat(): add TaskStatus enum for task management" />
     <MESSAGE value="feat(): add Task entity with properties and methods for task management" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(): add Task entity with properties and methods for task management" />
+    <MESSAGE value="feat(): introduce TaskId value object for task identification" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(): introduce TaskId value object for task identification" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

@@ -9,26 +9,56 @@ use DateTimeImmutable;
 
 final class Task
 {
+    private TaskStatus $status;
     private DateTimeImmutable $createdAt;
     private DateTimeImmutable $updatedAt;
-    private TaskStatus $status;
-    public function __construct(
+
+    private function __construct(
         private readonly TaskId $id,
         private string $title,
         private string $description
-    ) {
-        // TODO: Create validators and type validations for setters
+    )
+    {
+        $this->status = TaskStatus::TODO;
 
         $now = new DateTimeImmutable();
         $this->createdAt = $now;
         $this->updatedAt = $now;
-
-        $this->status = TaskStatus::TODO;
     }
 
-    private function touch(): void
+//    ==========================[ FACTORY ] ==========================
+
+    public static function create(string $id, string $title, string $description): self
     {
-        $this->updatedAt = new DateTimeImmutable();
+        return new self(new TaskId($id), $title, $description);
+    }
+
+    public function update(
+        ?string $title = null,
+        ?string $description = null,
+        ?TaskStatus $status = null
+    ): void
+    {
+        $changeDetected = false;
+
+        if ($title !== null && $this->title !== $title) {
+            $this->title = $title;
+            $changeDetected = true;
+        }
+
+        if ($description !== null && $this->description !== $description) {
+            $this->description = $description;
+            $changeDetected = true;
+        }
+
+        if ($status !== null && $this->status !== $status) {
+            $this->status = $status;
+            $changeDetected = true;
+        }
+
+        if ($changeDetected) {
+            $this->updatedAt = new DateTimeImmutable();
+        }
     }
 
 //    ==========================[ GETTERS ]==========================
@@ -61,37 +91,5 @@ final class Task
     public function getUpdatedAt(): DateTimeImmutable
     {
         return $this->updatedAt;
-    }
-
-//    ==========================[ SETTERS ]==========================
-
-    public function setTitle(string $title): void
-    {
-        if ($this->title === $title) {
-            return;
-        }
-
-        $this->title = $title;
-        $this->touch();
-    }
-
-    public function setDescription(string $description): void
-    {
-        if ($this->description === $description) {
-            return;
-        }
-
-        $this->description = $description;
-        $this->touch();
-    }
-
-    public function setStatus(TaskStatus $status): void
-    {
-        if ($this->status === $status) {
-            return;
-        }
-
-        $this->status = $status;
-        $this->touch();
     }
 }
