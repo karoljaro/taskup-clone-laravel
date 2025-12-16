@@ -2,13 +2,16 @@
 
 namespace App\core\domain\VO;
 
+use App\core\domain\Validation\SharedBusinessValidation;
+
 final readonly class TaskId
 {
     public function __construct(
         private string $value
     )
     {
-        // TODO: Add validations
+        $id = trim($this->value);
+        SharedBusinessValidation::validateId($id);
     }
 
     public function value(): string {

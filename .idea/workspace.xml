@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(): update Task entity to use timestamps as integers instead of DateTimeImmutable">
-      <change afterPath="$PROJECT_DIR$/app/core/domain/Exceptions/DomainError.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/domain/Exceptions/InvalidDescriptionException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/domain/Exceptions/InvalidIdException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/domain/Exceptions/InvalidStatusException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/domain/Exceptions/InvalidTimestampException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/domain/Exceptions/InvalidTitleException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/domain/Validation/SharedBusinessValidation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/domain/Validation/TaskBusinessValidation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/domain/Validation/TaskInvariantValidation.php" afterDir="false" />
+    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(): integrate validation for task creation and updates">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/core/domain/Entities/Task.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/domain/Entities/Task.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/domain/VO/TaskId.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/domain/VO/TaskId.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -298,7 +289,31 @@
       <option name="project" value="LOCAL" />
       <updated>1765869550276</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="feat(): add custom exception classes for domain validation">
+      <option name="closed" value="true" />
+      <created>1765881169982</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1765881169982</updated>
+    </task>
+    <task id="LOCAL-00011" summary="feat(): add validation classes for task and shared business rules">
+      <option name="closed" value="true" />
+      <created>1765881187458</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1765881187458</updated>
+    </task>
+    <task id="LOCAL-00012" summary="feat(): integrate validation for task creation and updates">
+      <option name="closed" value="true" />
+      <created>1765881196303</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1765881196303</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,7 +329,10 @@
     <MESSAGE value="feat(): introduce TaskId value object for task identification" />
     <MESSAGE value="feat(): enhance Task entity with factory method and update functionality" />
     <MESSAGE value="feat(): update Task entity to use timestamps as integers instead of DateTimeImmutable" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(): update Task entity to use timestamps as integers instead of DateTimeImmutable" />
+    <MESSAGE value="feat(): add custom exception classes for domain validation" />
+    <MESSAGE value="feat(): add validation classes for task and shared business rules" />
+    <MESSAGE value="feat(): integrate validation for task creation and updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(): integrate validation for task creation and updates" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
