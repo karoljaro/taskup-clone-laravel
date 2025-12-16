@@ -4,8 +4,8 @@
 namespace App\core\domain\Entities;
 
 use App\core\domain\Enums\TaskStatus;
+use App\core\domain\Validation\TaskInvariantValidation;
 use App\core\domain\VO\TaskId;
-use DateTimeImmutable;
 
 final class Task
 {
@@ -30,7 +30,14 @@ final class Task
 
     public static function create(string $id, string $title, ?string $description): self
     {
-        return new self(new TaskId($id), $title, $description ?? '');
+        TaskInvariantValidation::validateCreateProps(
+            id: $id,
+            title: $title,
+            description: $description
+        );
+        $task =  new self(new TaskId($id), $title, $description ?? '');
+        TaskInvariantValidation::validateCreatedTask($task);
+        return $task;
     }
 
     public function update(
@@ -39,6 +46,12 @@ final class Task
         ?TaskStatus $status = null
     ): void
     {
+        TaskInvariantValidation::validateUpdateProps(
+            title: $title,
+            description: $description,
+            status: $status
+        );
+
         $changeDetected = false;
 
         if ($title !== null && $this->title !== $title) {
