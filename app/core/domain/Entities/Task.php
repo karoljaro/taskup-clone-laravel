@@ -46,26 +46,30 @@ final class Task
         ?TaskStatus $status = null
     ): void
     {
+        $newTitle = $title ?? $this->title;
+        $newDescription = $description ?? $this->description;
+        $newStatus = $status ?? $this->status;
+
         TaskInvariantValidation::validateUpdateProps(
-            title: $title,
-            description: $description,
-            status: $status
+            title: $newTitle,
+            description: $newDescription,
+            status: $newStatus
         );
 
         $changeDetected = false;
 
-        if ($title !== null && $this->title !== $title) {
-            $this->title = $title;
+        if ($newTitle !== $this->title) {
+            $this->title = $newTitle;
             $changeDetected = true;
         }
 
-        if ($description !== null && $this->description !== $description) {
-            $this->description = $description;
+        if ($newDescription !== $this->description) {
+            $this->description = $newDescription;
             $changeDetected = true;
         }
 
-        if ($status !== null && $this->status !== $status) {
-            $this->status = $status;
+        if ($newStatus !== $this->status) {
+            $this->status = $newStatus;
             $changeDetected = true;
         }
 
