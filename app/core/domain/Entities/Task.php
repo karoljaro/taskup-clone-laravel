@@ -10,8 +10,8 @@ use DateTimeImmutable;
 final class Task
 {
     private TaskStatus $status;
-    private DateTimeImmutable $createdAt;
-    private DateTimeImmutable $updatedAt;
+    private int $createdAt;
+    private int $updatedAt;
 
     private function __construct(
         private readonly TaskId $id,
@@ -21,16 +21,16 @@ final class Task
     {
         $this->status = TaskStatus::TODO;
 
-        $now = new DateTimeImmutable();
+        $now = time();
         $this->createdAt = $now;
         $this->updatedAt = $now;
     }
 
 //    ==========================[ FACTORY ] ==========================
 
-    public static function create(string $id, string $title, string $description): self
+    public static function create(string $id, string $title, ?string $description): self
     {
-        return new self(new TaskId($id), $title, $description);
+        return new self(new TaskId($id), $title, $description ?? '');
     }
 
     public function update(
@@ -57,7 +57,7 @@ final class Task
         }
 
         if ($changeDetected) {
-            $this->updatedAt = new DateTimeImmutable();
+            $this->updatedAt = time();
         }
     }
 
@@ -83,12 +83,12 @@ final class Task
         return $this->status;
     }
 
-    public function getCreatedAt(): DateTimeImmutable
+    public function getCreatedAt(): int
     {
         return $this->createdAt;
     }
 
-    public function getUpdatedAt(): DateTimeImmutable
+    public function getUpdatedAt(): int
     {
         return $this->updatedAt;
     }
