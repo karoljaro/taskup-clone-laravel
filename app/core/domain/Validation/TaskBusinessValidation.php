@@ -36,4 +36,9 @@ class TaskBusinessValidation
             throw new InvalidDescriptionException("Description cannot exceed 2000 characters.");
         }
     }
+
+    public static function validateStatus(TaskStatus $status): void
+    {
+        // Since TaskStatus is an enum, this check is somewhat redundant,
+    }
 }

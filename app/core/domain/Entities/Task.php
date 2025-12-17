@@ -6,12 +6,13 @@ namespace App\core\domain\Entities;
 use App\core\domain\Enums\TaskStatus;
 use App\core\domain\Validation\TaskInvariantValidation;
 use App\core\domain\VO\TaskId;
+use DateTimeImmutable;
 
 final class Task
 {
     private TaskStatus $status;
-    private int $createdAt;
-    private int $updatedAt;
+    private DateTimeImmutable $createdAt;
+    private DateTimeImmutable $updatedAt;
 
     private function __construct(
         private readonly TaskId $id,
@@ -21,7 +22,7 @@ final class Task
     {
         $this->status = TaskStatus::TODO;
 
-        $now = time();
+        $now = new DateTimeImmutable();
         $this->createdAt = $now;
         $this->updatedAt = $now;
     }
@@ -74,7 +75,7 @@ final class Task
         }
 
         if ($changeDetected) {
-            $this->updatedAt = time();
+            $this->updatedAt = new DateTimeImmutable();
         }
     }
 
@@ -100,12 +101,12 @@ final class Task
         return $this->status;
     }
 
-    public function getCreatedAt(): int
+    public function getCreatedAt(): DateTimeImmutable
     {
         return $this->createdAt;
     }
 
-    public function getUpdatedAt(): int
+    public function getUpdatedAt(): DateTimeImmutable
     {
         return $this->updatedAt;
     }

@@ -4,6 +4,7 @@ namespace App\core\domain\Validation;
 
 use App\core\domain\Exceptions\InvalidIdException;
 use App\core\domain\Exceptions\InvalidTimestampException;
+use DateTimeImmutable;
 
 class SharedBusinessValidation
 {
@@ -18,7 +19,7 @@ class SharedBusinessValidation
         }
     }
 
-    public static function validateTimeStamp(int $timestamp): void
+    public static function validateTimeStamp(DateTimeImmutable $timestamp): void
     {
         if ($timestamp <= 0) {
             throw new InvalidTimestampException("Timestamp must be a positive integer.");
@@ -29,7 +30,7 @@ class SharedBusinessValidation
         }
     }
 
-    public static function validateUpdatedAt(int $createdAt, int $updatedAt): void
+    public static function validateUpdatedAt(DateTimeImmutable $createdAt, DateTimeImmutable $updatedAt): void
     {
         if ($updatedAt < $createdAt) {
             throw new InvalidTimestampException("UpdatedAt cannot be earlier than CreatedAt.");
