@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(): implement CreateTaskUseCase for task creation logic">
-      <change afterPath="$PROJECT_DIR$/app/core/application/DTOs/UpdateTaskInputDTO.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/application/useCases/UpdateTaskUseCase.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/UpdateTaskUseCaseTest.php" afterDir="false" />
+    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(): implement UpdateTaskUseCase for task updating logic">
+      <change afterPath="$PROJECT_DIR$/app/core/application/useCases/DeleteTaskUseCase.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/DeleteTaskUseCaseTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -257,7 +256,7 @@
       <workItem from="1765965961747" duration="5594000" />
       <workItem from="1765978543641" duration="372000" />
       <workItem from="1765981409502" duration="744000" />
-      <workItem from="1765983759722" duration="2621000" />
+      <workItem from="1765983759722" duration="3523000" />
     </task>
     <task id="LOCAL-00001" summary="refactor(): Create new project without build-in auth.">
       <option name="closed" value="true" />
@@ -443,7 +442,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765984339618</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="feat(): implement UpdateTaskUseCase for task updating logic">
+      <option name="closed" value="true" />
+      <created>1765995472055</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1765995472055</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -472,7 +479,8 @@
     <MESSAGE value="feat(): add IdGenerator interface for generating unique identifiers" />
     <MESSAGE value="feat(): add CreateTaskInputDTO for task creation input handling" />
     <MESSAGE value="feat(): implement CreateTaskUseCase for task creation logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(): implement CreateTaskUseCase for task creation logic" />
+    <MESSAGE value="feat(): implement UpdateTaskUseCase for task updating logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(): implement UpdateTaskUseCase for task updating logic" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
