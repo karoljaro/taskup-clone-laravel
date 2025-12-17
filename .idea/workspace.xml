@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(): add tests for TaskId value object and Task invariant validation">
-      <change beforePath="$PROJECT_DIR$/app/core/domain/Validation/SharedBusinessValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/domain/Validation/SharedBusinessValidation.php" afterDir="false" />
+    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(): improve timestamp validation logic in SharedBusinessValidation">
+      <change afterPath="$PROJECT_DIR$/app/core/domain/Exceptions/TaskNotFoundException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/core/domain/Repositories/TaskRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,34 +173,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Pest.TaskIdTest.php::`TaskId Value Object` → .executor": "Run",
-    "Pest.TaskInvariantValidationTest.php::`TaskInvariantValidation` → .executor": "Run",
-    "Pest.TaskStatusTest.php::`TaskStatus Enum` → .executor": "Run",
-    "Pest.TaskStatusTest.php::`TaskStatus Enum` → it COMPETED has correct value.executor": "Run",
-    "Pest.TaskStatusTest.php::`TaskStatus Enum` → it creation from invalid value throws error.executor": "Run",
-    "Pest.TaskTest.php::`Task Entity` → .executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/home/karoljaron/Projects/taskup-clone-laravel/node_modules/prettier",
-    "settings.editor.selected.configurable": "configurable.group.editor",
-    "ts.external.directory.path": "/home/karoljaron/Projects/taskup-clone-laravel/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Pest.TaskIdTest.php::`TaskId Value Object` → .executor&quot;: &quot;Run&quot;,
+    &quot;Pest.TaskInvariantValidationTest.php::`TaskInvariantValidation` → .executor&quot;: &quot;Run&quot;,
+    &quot;Pest.TaskStatusTest.php::`TaskStatus Enum` → .executor&quot;: &quot;Run&quot;,
+    &quot;Pest.TaskStatusTest.php::`TaskStatus Enum` → it COMPETED has correct value.executor&quot;: &quot;Run&quot;,
+    &quot;Pest.TaskStatusTest.php::`TaskStatus Enum` → it creation from invalid value throws error.executor&quot;: &quot;Run&quot;,
+    &quot;Pest.TaskTest.php::`Task Entity` → .executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/home/karoljaron/Projects/taskup-clone-laravel/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.editor&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/karoljaron/Projects/taskup-clone-laravel/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "vue.recent.templates": [
-      "Vue Composition API Component"
+  &quot;keyToStringList&quot;: {
+    &quot;vue.recent.templates&quot;: [
+      &quot;Vue Composition API Component&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Pest.TaskStatusTest.php::`TaskStatus Enum` → ">
     <configuration name="Main" type="PestRunConfigurationType">
       <PestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="ConfigurationFile" use_alternative_configuration_file="true" />
@@ -250,6 +252,7 @@
       <option name="presentableId" value="Default" />
       <updated>1765807448086</updated>
       <workItem from="1765807450660" duration="380000" />
+      <workItem from="1765965961747" duration="3211000" />
     </task>
     <task id="LOCAL-00001" summary="refactor(): Create new project without build-in auth.">
       <option name="closed" value="true" />
@@ -395,7 +398,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765962628869</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="feat(): improve timestamp validation logic in SharedBusinessValidation">
+      <option name="closed" value="true" />
+      <created>1765962885248</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1765962885248</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -419,7 +430,8 @@
     <MESSAGE value="feat(): update task timestamps to use DateTimeImmutable and enhance validation methods" />
     <MESSAGE value="feat(): update validation for ID format and enhance Pest configuration" />
     <MESSAGE value="feat(): add tests for TaskId value object and Task invariant validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(): add tests for TaskId value object and Task invariant validation" />
+    <MESSAGE value="feat(): improve timestamp validation logic in SharedBusinessValidation" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(): improve timestamp validation logic in SharedBusinessValidation" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
