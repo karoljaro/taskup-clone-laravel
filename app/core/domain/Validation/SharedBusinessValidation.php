@@ -21,11 +21,9 @@ class SharedBusinessValidation
 
     public static function validateTimeStamp(DateTimeImmutable $timestamp): void
     {
-        if ($timestamp <= 0) {
-            throw new InvalidTimestampException("Timestamp must be a positive integer.");
-        }
+        $now = new DateTimeImmutable();
 
-        if ($timestamp > time()) {
+        if ($timestamp > $now) {
             throw new InvalidTimestampException("Timestamp cannot be in the future.");
         }
     }

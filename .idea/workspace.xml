@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(): update task timestamps to use DateTimeImmutable and enhance validation methods">
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/Entities/TaskTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/Enums/TaskStatusTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/VO/TaskIdTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/Validation/TaskInvariantValidationTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php-test-framework.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(): add tests for TaskId value object and Task invariant validation">
       <change beforePath="$PROJECT_DIR$/app/core/domain/Validation/SharedBusinessValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/domain/Validation/SharedBusinessValidation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/ExampleTest.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -387,7 +379,23 @@
       <option name="project" value="LOCAL" />
       <updated>1765960570435</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="feat(): update validation for ID format and enhance Pest configuration">
+      <option name="closed" value="true" />
+      <created>1765962621527</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1765962621527</updated>
+    </task>
+    <task id="LOCAL-00018" summary="feat(): add tests for TaskId value object and Task invariant validation">
+      <option name="closed" value="true" />
+      <created>1765962628869</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1765962628869</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -409,7 +417,9 @@
     <MESSAGE value="feat(): integrate validation taskID dto" />
     <MESSAGE value="feat(): refactor task update method to use new properties for title, description, and status" />
     <MESSAGE value="feat(): update task timestamps to use DateTimeImmutable and enhance validation methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(): update task timestamps to use DateTimeImmutable and enhance validation methods" />
+    <MESSAGE value="feat(): update validation for ID format and enhance Pest configuration" />
+    <MESSAGE value="feat(): add tests for TaskId value object and Task invariant validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(): add tests for TaskId value object and Task invariant validation" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
