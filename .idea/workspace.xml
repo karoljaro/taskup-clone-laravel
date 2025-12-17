@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(): refactor task update method to use new properties for title, description, and status">
-      <change beforePath="$PROJECT_DIR$/app/core/domain/Entities/Task.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/domain/Entities/Task.php" afterDir="false" />
+    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(): update task timestamps to use DateTimeImmutable and enhance validation methods">
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/Entities/TaskTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/Enums/TaskStatusTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/VO/TaskIdTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/Validation/TaskInvariantValidationTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php-test-framework.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/core/domain/Validation/SharedBusinessValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/domain/Validation/SharedBusinessValidation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/ExampleTest.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,6 +182,12 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Pest.TaskIdTest.php::`TaskId Value Object` → .executor": "Run",
+    "Pest.TaskInvariantValidationTest.php::`TaskInvariantValidation` → .executor": "Run",
+    "Pest.TaskStatusTest.php::`TaskStatus Enum` → .executor": "Run",
+    "Pest.TaskStatusTest.php::`TaskStatus Enum` → it COMPETED has correct value.executor": "Run",
+    "Pest.TaskStatusTest.php::`TaskStatus Enum` → it creation from invalid value throws error.executor": "Run",
+    "Pest.TaskTest.php::`Task Entity` → .executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -194,11 +207,40 @@
     ]
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Pest.TaskStatusTest.php::`TaskStatus Enum` → ">
     <configuration name="Main" type="PestRunConfigurationType">
       <PestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="ConfigurationFile" use_alternative_configuration_file="true" />
       <method v="2" />
     </configuration>
+    <configuration name="TaskIdTest.php::`TaskId Value Object` → " type="PestRunConfigurationType" temporary="true">
+      <PestRunner file="$PROJECT_DIR$/tests/Unit/Domain/VO/TaskIdTest.php" method="`TaskId Value Object` → " scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TaskStatusTest.php::`TaskStatus Enum` → it COMPETED has correct value" type="PestRunConfigurationType" temporary="true">
+      <PestRunner file="$PROJECT_DIR$/tests/Unit/Domain/Enums/TaskStatusTest.php" method="`TaskStatus Enum` → it COMPETED has correct value" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TaskStatusTest.php::`TaskStatus Enum` → it creation from invalid value throws error" type="PestRunConfigurationType" temporary="true">
+      <PestRunner file="$PROJECT_DIR$/tests/Unit/Domain/Enums/TaskStatusTest.php" method="`TaskStatus Enum` → it creation from invalid value throws error" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TaskStatusTest.php::`TaskStatus Enum` → " type="PestRunConfigurationType" temporary="true">
+      <PestRunner file="$PROJECT_DIR$/tests/Unit/Domain/Enums/TaskStatusTest.php" method="`TaskStatus Enum` → " scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TaskTest.php::`Task Entity` → " type="PestRunConfigurationType" temporary="true">
+      <PestRunner file="$PROJECT_DIR$/tests/Unit/Domain/Entities/TaskTest.php" method="`Task Entity` → " scope="Method" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Pest.TaskStatusTest.php::`TaskStatus Enum` → " />
+        <item itemvalue="Pest.TaskStatusTest.php::`TaskStatus Enum` → it COMPETED has correct value" />
+        <item itemvalue="Pest.TaskStatusTest.php::`TaskStatus Enum` → it creation from invalid value throws error" />
+        <item itemvalue="Pest.TaskTest.php::`Task Entity` → " />
+        <item itemvalue="Pest.TaskIdTest.php::`TaskId Value Object` → " />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -337,7 +379,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765907682623</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="feat(): update task timestamps to use DateTimeImmutable and enhance validation methods">
+      <option name="closed" value="true" />
+      <created>1765960570435</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1765960570435</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -358,7 +408,8 @@
     <MESSAGE value="feat(): integrate validation for task creation and updates" />
     <MESSAGE value="feat(): integrate validation taskID dto" />
     <MESSAGE value="feat(): refactor task update method to use new properties for title, description, and status" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(): refactor task update method to use new properties for title, description, and status" />
+    <MESSAGE value="feat(): update task timestamps to use DateTimeImmutable and enhance validation methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(): update task timestamps to use DateTimeImmutable and enhance validation methods" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

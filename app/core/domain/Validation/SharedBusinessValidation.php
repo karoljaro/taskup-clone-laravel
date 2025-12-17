@@ -14,8 +14,8 @@ class SharedBusinessValidation
             throw new InvalidIdException("ID cannot be empty.");
         }
 
-        if (!preg_match('/^[a-f0-9]{32}$/', $id)) {
-            throw new InvalidIdException("ID must be a valid 32-character hexadecimal string.");
+        if (!preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i', $id)) {
+            throw new InvalidIdException("Invalid UUID format");
         }
     }
 
