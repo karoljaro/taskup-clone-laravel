@@ -1,6 +1,6 @@
 <?php
 
-use App\core\application\useCases\CreateTaskUseCase;
+use App\core\application\UseCases\CreateTaskUseCase;
 use App\core\application\DTOs\CreateTaskInputDTO;
 use App\core\application\Shared\IdGenerator;
 use App\core\domain\Repositories\TaskRepository;

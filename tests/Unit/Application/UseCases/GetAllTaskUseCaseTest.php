@@ -1,6 +1,6 @@
 <?php
 
-use App\core\application\useCases\GetAllTaskUseCase;
+use App\core\application\UseCases\GetAllTaskUseCase;
 use App\core\domain\Repositories\TaskRepository;
 use App\core\domain\Entities\Task;
 use App\core\domain\Enums\TaskStatus;
