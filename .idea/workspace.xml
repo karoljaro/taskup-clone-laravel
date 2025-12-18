@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="refactor(): change classes to final readonly for task use cases">
-      <change beforePath="$PROJECT_DIR$/app/core/application/useCases/CreateTaskUseCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/application/UseCases/CreateTaskUseCase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/core/application/useCases/DeleteTaskUseCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/application/UseCases/DeleteTaskUseCase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/core/application/useCases/GetAllTaskUseCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/application/UseCases/GetAllTaskUseCase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/core/application/useCases/UpdateTaskUseCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/application/UseCases/UpdateTaskUseCase.php" afterDir="false" />
+    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="refactor(): rename use case files and update namespaces to UseCases">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/application/UseCases/CreateTaskUseCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/application/Commands/CreateTaskUseCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/application/UseCases/DeleteTaskUseCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/application/Commands/DeleteTaskUseCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/application/UseCases/GetAllTaskUseCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/application/Queries/GetAllTaskUseCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/application/UseCases/UpdateTaskUseCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/application/Commands/UpdateTaskUseCase.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Unit/Application/UseCases/CreateTaskUseCaseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/CreateTaskUseCaseTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Unit/Application/UseCases/DeleteTaskUseCaseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/DeleteTaskUseCaseTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Unit/Application/UseCases/GetAllTaskUseCaseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/GetAllTaskUseCaseTest.php" afterDir="false" />
@@ -203,6 +204,7 @@
     "laravel_idea.dialogs.code_generation:createFormRequest.width": "400",
     "laravel_idea.dialogs.code_generation:createFormRequest.x": "760",
     "laravel_idea.dialogs.code_generation:createFormRequest.y": "431",
+    "last_opened_file_path": "/home/karoljaron/Projects/taskup-clone-laravel/app/core/application/Queries",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
@@ -217,6 +219,12 @@
     ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/core/application/Queries" />
+      <recent name="$PROJECT_DIR$/app/core/application/Command" />
+    </key>
+  </component>
   <component name="RunManager" selected="Pest.DeleteTaskUseCaseTest.php::`DeleteTaskUseCase` → `execute()` → it propagates TaskNotFoundException with correct message">
     <configuration name="DeleteTaskUseCaseTest.php::`DeleteTaskUseCase` → `execute()` → it propagates TaskNotFoundException with correct message" type="PestRunConfigurationType" temporary="true">
       <PestRunner file="$PROJECT_DIR$/tests/Unit/Application/UseCases/DeleteTaskUseCaseTest.php" method="`DeleteTaskUseCase` → `execute()` → it propagates TaskNotFoundException with correct message" scope="Method" />
@@ -273,7 +281,7 @@
       <workItem from="1765981409502" duration="744000" />
       <workItem from="1765983759722" duration="4601000" />
       <workItem from="1766051691461" duration="95000" />
-      <workItem from="1766052046326" duration="2249000" />
+      <workItem from="1766052046326" duration="3693000" />
     </task>
     <task id="LOCAL-00001" summary="refactor(): Create new project without build-in auth.">
       <option name="closed" value="true" />
@@ -491,14 +499,29 @@
       <option name="project" value="LOCAL" />
       <updated>1766054138444</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="refactor(): change classes to final readonly for task use cases">
+      <option name="closed" value="true" />
+      <created>1766054329162</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1766054329162</updated>
+    </task>
+    <task id="LOCAL-00029" summary="refactor(): rename use case files and update namespaces to UseCases">
+      <option name="closed" value="true" />
+      <created>1766054337995</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1766054337995</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat(): add migration configuration files and CI workflows" />
     <MESSAGE value="chore(): rename workflow files for consistency" />
     <MESSAGE value="feat(): add Home component and update routing to use it" />
     <MESSAGE value="feat(): add TaskStatus enum for task management" />
@@ -523,7 +546,8 @@
     <MESSAGE value="feat(): implement DeleteTaskUseCase for task deletion logic" />
     <MESSAGE value="feat(): implement GetAllTaskUseCase for retrieving all tasks" />
     <MESSAGE value="refactor(): change classes to final readonly for task use cases" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(): change classes to final readonly for task use cases" />
+    <MESSAGE value="refactor(): rename use case files and update namespaces to UseCases" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(): rename use case files and update namespaces to UseCases" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

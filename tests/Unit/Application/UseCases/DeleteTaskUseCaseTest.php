@@ -1,6 +1,6 @@
 <?php
 
-use App\core\application\UseCases\DeleteTaskUseCase;
+use App\core\application\Commands\DeleteTaskUseCase;
 use App\core\domain\Repositories\TaskRepository;
 use App\core\domain\Exceptions\TaskNotFoundException;
 use App\core\domain\VO\TaskId;

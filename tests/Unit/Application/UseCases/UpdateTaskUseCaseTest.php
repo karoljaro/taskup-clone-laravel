@@ -1,6 +1,6 @@
 <?php
 
-use App\core\application\UseCases\UpdateTaskUseCase;
+use App\core\application\Commands\UpdateTaskUseCase;
 use App\core\application\DTOs\UpdateTaskInputDTO;
 use App\core\domain\Repositories\TaskRepository;
 use App\core\domain\Entities\Task;

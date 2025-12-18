@@ -1,11 +1,11 @@
 <?php
 
-namespace App\core\application\UseCases;
+namespace App\core\application\Commands;
 
 use App\core\application\DTOs\CreateTaskInputDTO;
 use App\core\application\Shared\IdGenerator;
-use App\core\domain\Repositories\TaskRepository;
 use App\core\domain\Entities\Task;
+use App\core\domain\Repositories\TaskRepository;
 
 /**
  * CreateTaskUseCase - handles task creation

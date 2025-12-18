@@ -1,6 +1,6 @@
 <?php
 
-namespace App\core\application\UseCases;
+namespace App\core\application\Queries;
 
 use App\core\domain\Entities\Task;
 use App\core\domain\Repositories\TaskRepository;

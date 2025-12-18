@@ -1,6 +1,6 @@
 <?php
 
-namespace App\core\application\UseCases;
+namespace App\core\application\Commands;
 
 use App\core\domain\Repositories\TaskRepository;
 use App\core\domain\VO\TaskId;

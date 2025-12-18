@@ -1,6 +1,6 @@
 <?php
 
-namespace App\core\application\UseCases;
+namespace App\core\application\Commands;
 
 use App\core\application\DTOs\UpdateTaskInputDTO;
 use App\core\domain\Entities\Task;
