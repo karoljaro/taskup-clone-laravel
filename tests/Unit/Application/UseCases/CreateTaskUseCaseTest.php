@@ -1,13 +1,13 @@
 <?php
 
-use App\core\application\Commands\CreateTaskUseCase;
+use App\core\application\Commands\CreateTaskCommand;
 use App\core\application\DTOs\CreateTaskInputDTO;
 use App\core\application\Shared\IdGenerator;
 use App\core\domain\Repositories\TaskRepository;
 use App\core\domain\Entities\Task;
 use App\core\domain\Enums\TaskStatus;
 
-describe('CreateTaskUseCase', function () {
+describe('CreateTaskCommand', function () {
     describe('execute()', function () {
         it('creates and saves a new task with title and description', function () {
             $mockIdGenerator = mock(IdGenerator::class);
@@ -24,7 +24,7 @@ describe('CreateTaskUseCase', function () {
             $mockTaskRepo->shouldReceive('save')
                 ->once();
 
-            $useCase = new CreateTaskUseCase($mockTaskRepo, $mockIdGenerator);
+            $useCase = new CreateTaskCommand($mockTaskRepo, $mockIdGenerator);
             $input = new CreateTaskInputDTO($title, $description);
 
             $result = $useCase->execute($input);
@@ -49,7 +49,7 @@ describe('CreateTaskUseCase', function () {
             $mockTaskRepo->shouldReceive('save')
                 ->once();
 
-            $useCase = new CreateTaskUseCase($mockTaskRepo, $mockIdGenerator);
+            $useCase = new CreateTaskCommand($mockTaskRepo, $mockIdGenerator);
             $input = new CreateTaskInputDTO($title);
 
             $result = $useCase->execute($input);
@@ -70,7 +70,7 @@ describe('CreateTaskUseCase', function () {
 
             $mockTaskRepo->shouldReceive('save');
 
-            $useCase = new CreateTaskUseCase($mockTaskRepo, $mockIdGenerator);
+            $useCase = new CreateTaskCommand($mockTaskRepo, $mockIdGenerator);
             $input = new CreateTaskInputDTO('Test Task');
 
             $useCase->execute($input);
@@ -86,7 +86,7 @@ describe('CreateTaskUseCase', function () {
             $mockTaskRepo->shouldReceive('save')
                 ->once();
 
-            $useCase = new CreateTaskUseCase($mockTaskRepo, $mockIdGenerator);
+            $useCase = new CreateTaskCommand($mockTaskRepo, $mockIdGenerator);
             $input = new CreateTaskInputDTO('Test Task');
 
             $useCase->execute($input);
@@ -103,7 +103,7 @@ describe('CreateTaskUseCase', function () {
 
             $mockTaskRepo->shouldReceive('save');
 
-            $useCase = new CreateTaskUseCase($mockTaskRepo, $mockIdGenerator);
+            $useCase = new CreateTaskCommand($mockTaskRepo, $mockIdGenerator);
             $input = new CreateTaskInputDTO('New Task', 'Description');
 
             $result = $useCase->execute($input);

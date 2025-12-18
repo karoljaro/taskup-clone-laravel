@@ -1,11 +1,11 @@
 <?php
 
-use App\core\application\Queries\GetAllTaskUseCase;
+use App\core\application\Queries\GetAllTaskQuery;
 use App\core\domain\Repositories\TaskRepository;
 use App\core\domain\Entities\Task;
 use App\core\domain\Enums\TaskStatus;
 
-describe('GetAllTaskUseCase', function () {
+describe('GetAllTaskQuery', function () {
     describe('execute()', function () {
         it('returns all tasks from repository', function () {
             $mockTaskRepo = mock(TaskRepository::class);
@@ -20,7 +20,7 @@ describe('GetAllTaskUseCase', function () {
                 ->once()
                 ->andReturn($tasks);
 
-            $useCase = new GetAllTaskUseCase($mockTaskRepo);
+            $useCase = new GetAllTaskQuery($mockTaskRepo);
             $result = $useCase->execute();
 
             expect($result)->toHaveCount(2)
@@ -37,7 +37,7 @@ describe('GetAllTaskUseCase', function () {
                 ->once()
                 ->andReturn([]);
 
-            $useCase = new GetAllTaskUseCase($mockTaskRepo);
+            $useCase = new GetAllTaskQuery($mockTaskRepo);
             $result = $useCase->execute();
 
             expect($result)->toBeArray()
@@ -53,7 +53,7 @@ describe('GetAllTaskUseCase', function () {
                 ->once()
                 ->andReturn([$task]);
 
-            $useCase = new GetAllTaskUseCase($mockTaskRepo);
+            $useCase = new GetAllTaskQuery($mockTaskRepo);
             $result = $useCase->execute();
 
             expect($result[0])->toBeInstanceOf(Task::class);

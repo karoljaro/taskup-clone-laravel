@@ -1,11 +1,11 @@
 <?php
 
-use App\core\application\Commands\DeleteTaskUseCase;
+use App\core\application\Commands\DeleteTaskCommand;
 use App\core\domain\Repositories\TaskRepository;
 use App\core\domain\Exceptions\TaskNotFoundException;
 use App\core\domain\VO\TaskId;
 
-describe('DeleteTaskUseCase', function () {
+describe('DeleteTaskCommand', function () {
     describe('execute()', function () {
         it('calls repository deleteByTaskId with correct TaskId', function () {
             $taskId = new TaskId('f47ac10b-58cc-4372-a567-0e02b2c3d479');
@@ -15,7 +15,7 @@ describe('DeleteTaskUseCase', function () {
                 ->with($taskId)
                 ->once();
 
-            $useCase = new DeleteTaskUseCase($mockTaskRepo);
+            $useCase = new DeleteTaskCommand($mockTaskRepo);
             $useCase->execute($taskId);
         });
 
@@ -26,7 +26,7 @@ describe('DeleteTaskUseCase', function () {
             $mockTaskRepo->shouldReceive('deleteByTaskId')
                 ->once();
 
-            $useCase = new DeleteTaskUseCase($mockTaskRepo);
+            $useCase = new DeleteTaskCommand($mockTaskRepo);
             $useCase->execute($taskId);
         });
 
@@ -36,7 +36,7 @@ describe('DeleteTaskUseCase', function () {
             $mockTaskRepo = mock(TaskRepository::class);
             $mockTaskRepo->shouldReceive('deleteByTaskId');
 
-            $useCase = new DeleteTaskUseCase($mockTaskRepo);
+            $useCase = new DeleteTaskCommand($mockTaskRepo);
 
             $useCase->execute($taskId);
 
@@ -52,7 +52,7 @@ describe('DeleteTaskUseCase', function () {
                 ->once()
                 ->andThrow(new TaskNotFoundException($taskId));
 
-            $useCase = new DeleteTaskUseCase($mockTaskRepo);
+            $useCase = new DeleteTaskCommand($mockTaskRepo);
 
             expect(fn() => $useCase->execute($taskId))
                 ->toThrow(TaskNotFoundException::class);
@@ -68,7 +68,7 @@ describe('DeleteTaskUseCase', function () {
                 ->once()
                 ->andThrow($exception);
 
-            $useCase = new DeleteTaskUseCase($mockTaskRepo);
+            $useCase = new DeleteTaskCommand($mockTaskRepo);
 
             expect(fn() => $useCase->execute($taskId))
                 ->toThrow(TaskNotFoundException::class);
@@ -88,7 +88,7 @@ describe('DeleteTaskUseCase', function () {
                     ->with($taskId)
                     ->once();
 
-                $useCase = new DeleteTaskUseCase($mockTaskRepo);
+                $useCase = new DeleteTaskCommand($mockTaskRepo);
                 $useCase->execute($taskId);
             }
         });

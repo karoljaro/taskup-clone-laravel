@@ -1,6 +1,6 @@
 <?php
 
-use App\core\application\Commands\UpdateTaskUseCase;
+use App\core\application\Commands\UpdateTaskCommand;
 use App\core\application\DTOs\UpdateTaskInputDTO;
 use App\core\domain\Repositories\TaskRepository;
 use App\core\domain\Entities\Task;
@@ -8,7 +8,7 @@ use App\core\domain\Enums\TaskStatus;
 use App\core\domain\Exceptions\TaskNotFoundException;
 use App\core\domain\VO\TaskId;
 
-describe('UpdateTaskUseCase', function () {
+describe('UpdateTaskCommand', function () {
     describe('execute()', function () {
         it('updates task title only', function () {
             $taskId = new TaskId('f47ac10b-58cc-4372-a567-0e02b2c3d479');
@@ -26,7 +26,7 @@ describe('UpdateTaskUseCase', function () {
             $mockTaskRepo->shouldReceive('save')
                 ->once();
 
-            $useCase = new UpdateTaskUseCase($mockTaskRepo);
+            $useCase = new UpdateTaskCommand($mockTaskRepo);
             $input = new UpdateTaskInputDTO(title: 'New Title');
 
             $result = $useCase->execute($taskId, $input);
@@ -52,7 +52,7 @@ describe('UpdateTaskUseCase', function () {
             $mockTaskRepo->shouldReceive('save')
                 ->once();
 
-            $useCase = new UpdateTaskUseCase($mockTaskRepo);
+            $useCase = new UpdateTaskCommand($mockTaskRepo);
             $input = new UpdateTaskInputDTO(description: 'New Description');
 
             $result = $useCase->execute($taskId, $input);
@@ -78,7 +78,7 @@ describe('UpdateTaskUseCase', function () {
             $mockTaskRepo->shouldReceive('save')
                 ->once();
 
-            $useCase = new UpdateTaskUseCase($mockTaskRepo);
+            $useCase = new UpdateTaskCommand($mockTaskRepo);
             $input = new UpdateTaskInputDTO(status: TaskStatus::IN_PROGRESS);
 
             $result = $useCase->execute($taskId, $input);
@@ -103,7 +103,7 @@ describe('UpdateTaskUseCase', function () {
             $mockTaskRepo->shouldReceive('save')
                 ->once();
 
-            $useCase = new UpdateTaskUseCase($mockTaskRepo);
+            $useCase = new UpdateTaskCommand($mockTaskRepo);
             $input = new UpdateTaskInputDTO(
                 title: 'New Title',
                 description: 'New Description',
@@ -134,7 +134,7 @@ describe('UpdateTaskUseCase', function () {
             $mockTaskRepo->shouldReceive('save')
                 ->once();
 
-            $useCase = new UpdateTaskUseCase($mockTaskRepo);
+            $useCase = new UpdateTaskCommand($mockTaskRepo);
             $input = new UpdateTaskInputDTO(title: 'Updated Title');
 
             $result = $useCase->execute($taskId, $input);
@@ -159,7 +159,7 @@ describe('UpdateTaskUseCase', function () {
                 ->andReturn($existingTask);
             $mockTaskRepo->shouldReceive('save');
 
-            $useCase = new UpdateTaskUseCase($mockTaskRepo);
+            $useCase = new UpdateTaskCommand($mockTaskRepo);
             $input = new UpdateTaskInputDTO(title: 'New Title');
 
             $useCase->execute($taskId, $input);
@@ -179,7 +179,7 @@ describe('UpdateTaskUseCase', function () {
             $mockTaskRepo->shouldReceive('save')
                 ->once();
 
-            $useCase = new UpdateTaskUseCase($mockTaskRepo);
+            $useCase = new UpdateTaskCommand($mockTaskRepo);
             $input = new UpdateTaskInputDTO(title: 'New Title');
 
             $useCase->execute($taskId, $input);
@@ -194,7 +194,7 @@ describe('UpdateTaskUseCase', function () {
                 ->once()
                 ->andThrow(new TaskNotFoundException($taskId));
 
-            $useCase = new UpdateTaskUseCase($mockTaskRepo);
+            $useCase = new UpdateTaskCommand($mockTaskRepo);
             $input = new UpdateTaskInputDTO(title: 'New Title');
 
             expect(fn() => $useCase->execute($taskId, $input))
@@ -212,7 +212,7 @@ describe('UpdateTaskUseCase', function () {
             $mockTaskRepo->shouldReceive('save')
                 ->never();
 
-            $useCase = new UpdateTaskUseCase($mockTaskRepo);
+            $useCase = new UpdateTaskCommand($mockTaskRepo);
             $input = new UpdateTaskInputDTO(title: 'New Title');
 
             try {
@@ -235,7 +235,7 @@ describe('UpdateTaskUseCase', function () {
                 ->andReturn($existingTask);
             $mockTaskRepo->shouldReceive('save');
 
-            $useCase = new UpdateTaskUseCase($mockTaskRepo);
+            $useCase = new UpdateTaskCommand($mockTaskRepo);
             $input = new UpdateTaskInputDTO(title: 'Updated Title');
 
             $result = $useCase->execute($taskId, $input);

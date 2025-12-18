@@ -7,9 +7,9 @@ use App\core\domain\VO\TaskId;
 use App\core\domain\Exceptions\TaskNotFoundException;
 
 /**
- * DeleteTaskUseCase - handles task deletion by task ID
+ * DeleteTaskCommand - handles task deletion by task ID
  */
-final readonly class DeleteTaskUseCase
+final readonly class DeleteTaskCommand
 {
     public function __construct(
         private TaskRepository $taskRepo,

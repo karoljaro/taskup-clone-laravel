@@ -8,9 +8,9 @@ use App\core\domain\Entities\Task;
 use App\core\domain\Repositories\TaskRepository;
 
 /**
- * CreateTaskUseCase - handles task creation
+ * CreateTaskCommand - handles task creation
  */
-final readonly class CreateTaskUseCase
+final readonly class CreateTaskCommand
 {
     public function __construct(
         private TaskRepository $taskRepo,

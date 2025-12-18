@@ -9,9 +9,9 @@ use App\core\domain\Repositories\TaskRepository;
 use App\core\domain\VO\TaskId;
 
 /**
- * UpdateTaskUseCase - handles task updating
+ * UpdateTaskCommand - handles task updating
  */
-final readonly class UpdateTaskUseCase
+final readonly class UpdateTaskCommand
 {
     public function __construct(
         private TaskRepository $taskRepo,
