@@ -9,7 +9,7 @@ use App\core\domain\Exceptions\TaskNotFoundException;
 /**
  * DeleteTaskUseCase - handles task deletion by task ID
  */
-readonly class DeleteTaskUseCase
+final readonly class DeleteTaskUseCase
 {
     public function __construct(
         private TaskRepository $taskRepo,

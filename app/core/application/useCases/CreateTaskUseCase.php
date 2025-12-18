@@ -10,7 +10,7 @@ use App\core\domain\Entities\Task;
 /**
  * CreateTaskUseCase - handles task creation
  */
-readonly class CreateTaskUseCase
+final readonly class CreateTaskUseCase
 {
     public function __construct(
         private TaskRepository $taskRepo,

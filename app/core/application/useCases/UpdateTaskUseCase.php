@@ -11,7 +11,7 @@ use App\core\domain\VO\TaskId;
 /**
  * UpdateTaskUseCase - handles task updating
  */
-readonly class UpdateTaskUseCase
+final readonly class UpdateTaskUseCase
 {
     public function __construct(
         private TaskRepository $taskRepo,
