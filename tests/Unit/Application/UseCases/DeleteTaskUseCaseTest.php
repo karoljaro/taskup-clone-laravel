@@ -1,9 +1,9 @@
 <?php
 
-use App\Core\application\Commands\DeleteTaskCommand;
-use App\Core\domain\Exceptions\TaskNotFoundException;
-use App\Core\domain\Repositories\TaskRepository;
-use App\Core\domain\VO\TaskId;
+use App\Core\Application\Commands\DeleteTaskCommand;
+use App\Core\Domain\Exceptions\TaskNotFoundException;
+use App\Core\Domain\Repositories\TaskRepository;
+use App\Core\Domain\VO\TaskId;
 
 describe('DeleteTaskCommand', function () {
     describe('execute()', function () {

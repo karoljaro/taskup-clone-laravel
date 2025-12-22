@@ -1,10 +1,10 @@
 <?php
 
-use App\Core\domain\Enums\TaskStatus;
-use App\Core\domain\Exceptions\InvalidDescriptionException;
-use App\Core\domain\Exceptions\InvalidIdException;
-use App\Core\domain\Exceptions\InvalidTitleException;
-use App\Core\domain\Validation\TaskInvariantValidation;
+use App\Core\Domain\Enums\TaskStatus;
+use App\Core\Domain\Exceptions\InvalidDescriptionException;
+use App\Core\Domain\Exceptions\InvalidIdException;
+use App\Core\Domain\Exceptions\InvalidTitleException;
+use App\Core\Domain\Validation\TaskInvariantValidation;
 
 describe('TaskInvariantValidation', function () {
     describe('validateCreateProps', function () {

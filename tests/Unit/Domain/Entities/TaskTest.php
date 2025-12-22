@@ -1,11 +1,11 @@
 <?php
 
-use App\Core\domain\Entities\Task;
-use App\Core\domain\Enums\TaskStatus;
-use App\Core\domain\Exceptions\InvalidDescriptionException;
-use App\Core\domain\Exceptions\InvalidIdException;
-use App\Core\domain\Exceptions\InvalidTitleException;
-use App\Core\domain\VO\TaskId;
+use App\Core\Domain\Entities\Task;
+use App\Core\Domain\Enums\TaskStatus;
+use App\Core\Domain\Exceptions\InvalidDescriptionException;
+use App\Core\Domain\Exceptions\InvalidIdException;
+use App\Core\Domain\Exceptions\InvalidTitleException;
+use App\Core\Domain\VO\TaskId;
 
 describe('Task Entity', function () {
     describe('Factory - create()', function () {
