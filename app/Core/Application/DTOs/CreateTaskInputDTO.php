@@ -2,15 +2,15 @@
 
 namespace App\Core\Application\DTOs;
 
-class CreateTaskInputDTO
+readonly class CreateTaskInputDTO
 {
     /**
      * @param string $title
      * @param string|null $description
      */
     public function __construct(
-        public readonly string $title,
-        public readonly ?string $description = null
+        public string $title,
+        public ?string $description = null
     )
     {}
 }

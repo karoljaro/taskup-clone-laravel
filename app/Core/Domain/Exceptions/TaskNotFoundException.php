@@ -5,7 +5,7 @@ namespace App\Core\Domain\Exceptions;
 use App\Core\Domain\VO\TaskId;
 use Exception;
 
-class TaskNotFoundException extends Exception
+final class TaskNotFoundException extends Exception
 {
     public function __construct(TaskId $taskId)
     {

@@ -2,35 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="refactor(): update namespaces to follow PSR standards and rename use case files">
-      <change beforePath="$PROJECT_DIR$/app/Core/application/Commands/CreateTaskCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Application/Commands/CreateTaskCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Core/application/Commands/DeleteTaskCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Application/Commands/DeleteTaskCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Core/application/Commands/UpdateTaskCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Application/Commands/UpdateTaskCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Core/application/DTOs/CreateTaskInputDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Application/DTOs/CreateTaskInputDTO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Core/application/DTOs/UpdateTaskInputDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Application/DTOs/UpdateTaskInputDTO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Core/application/Queries/GetAllTaskQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Application/Queries/GetAllTaskQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Core/application/Shared/IdGenerator.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Application/Shared/IdGenerator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Core/domain/Entities/Task.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Domain/Entities/Task.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Core/domain/Enums/TaskStatus.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Domain/Enums/TaskStatus.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Core/domain/Exceptions/DomainError.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Domain/Exceptions/DomainError.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Core/domain/Exceptions/InvalidDescriptionException.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Domain/Exceptions/InvalidDescriptionException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Core/domain/Exceptions/InvalidIdException.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Domain/Exceptions/InvalidIdException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Core/domain/Exceptions/InvalidStatusException.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Domain/Exceptions/InvalidStatusException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Core/domain/Exceptions/InvalidTimestampException.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Domain/Exceptions/InvalidTimestampException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Core/domain/Exceptions/InvalidTitleException.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Domain/Exceptions/InvalidTitleException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Core/domain/Exceptions/TaskNotFoundException.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Domain/Exceptions/TaskNotFoundException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Core/domain/Repositories/TaskRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Domain/Repositories/TaskRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Core/domain/VO/TaskId.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Domain/VO/TaskId.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Core/domain/Validation/SharedBusinessValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Domain/Validation/SharedBusinessValidation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Core/domain/Validation/TaskBusinessValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Domain/Validation/TaskBusinessValidation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Core/domain/Validation/TaskInvariantValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Domain/Validation/TaskInvariantValidation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Application/UseCases/CreateTaskUseCaseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/CreateTaskUseCaseTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Application/UseCases/DeleteTaskUseCaseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/DeleteTaskUseCaseTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Application/UseCases/GetAllTaskUseCaseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/GetAllTaskUseCaseTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Application/UseCases/UpdateTaskUseCaseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/UpdateTaskUseCaseTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Entities/TaskTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Entities/TaskTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Enums/TaskStatusTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Enums/TaskStatusTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/VO/TaskIdTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/VO/TaskIdTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Validation/TaskInvariantValidationTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Validation/TaskInvariantValidationTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Core/Application/DTOs/CreateTaskInputDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Application/DTOs/CreateTaskInputDTO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Core/Domain/Exceptions/InvalidTimestampException.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Domain/Exceptions/InvalidTimestampException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Core/Domain/Exceptions/TaskNotFoundException.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Domain/Exceptions/TaskNotFoundException.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -543,7 +517,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766428312230</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="refactor(): update namespaces to follow PSR standards and rename use case files">
+      <option name="closed" value="true" />
+      <created>1766429243771</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1766429243771</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

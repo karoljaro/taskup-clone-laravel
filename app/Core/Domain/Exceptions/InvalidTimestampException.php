@@ -2,7 +2,7 @@
 
 namespace App\Core\Domain\Exceptions;
 
-class InvalidTimestampException extends DomainError
+final class InvalidTimestampException extends DomainError
 {
     public function __construct(string $message = "The provided timestamp is invalid.")
     {
