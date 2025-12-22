@@ -1,7 +1,7 @@
 <?php
 
-use App\core\domain\Exceptions\InvalidIdException;
-use App\core\domain\VO\TaskId;
+use App\Core\domain\Exceptions\InvalidIdException;
+use App\Core\domain\VO\TaskId;
 
 describe('TaskId Value Object', function () {
     it('can be created with valid UUID', function () {

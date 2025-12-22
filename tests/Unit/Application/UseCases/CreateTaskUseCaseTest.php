@@ -1,11 +1,11 @@
 <?php
 
-use App\core\application\Commands\CreateTaskCommand;
-use App\core\application\DTOs\CreateTaskInputDTO;
-use App\core\application\Shared\IdGenerator;
-use App\core\domain\Repositories\TaskRepository;
-use App\core\domain\Entities\Task;
-use App\core\domain\Enums\TaskStatus;
+use App\Core\application\Commands\CreateTaskCommand;
+use App\Core\application\DTOs\CreateTaskInputDTO;
+use App\Core\application\Shared\IdGenerator;
+use App\Core\domain\Repositories\TaskRepository;
+use App\Core\domain\Entities\Task;
+use App\Core\domain\Enums\TaskStatus;
 
 describe('CreateTaskCommand', function () {
     describe('execute()', function () {

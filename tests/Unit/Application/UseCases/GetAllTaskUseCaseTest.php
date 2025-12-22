@@ -1,9 +1,9 @@
 <?php
 
-use App\core\application\Queries\GetAllTaskQuery;
-use App\core\domain\Repositories\TaskRepository;
-use App\core\domain\Entities\Task;
-use App\core\domain\Enums\TaskStatus;
+use App\Core\application\Queries\GetAllTaskQuery;
+use App\Core\domain\Repositories\TaskRepository;
+use App\Core\domain\Entities\Task;
+use App\Core\domain\Enums\TaskStatus;
 
 describe('GetAllTaskQuery', function () {
     describe('execute()', function () {

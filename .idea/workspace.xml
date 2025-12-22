@@ -3,14 +3,35 @@
   <component name="ChangeListManager">
     <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="refactor(): rename use case files and update namespaces to UseCases">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/core/application/UseCases/CreateTaskUseCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/application/Commands/CreateTaskUseCase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/core/application/UseCases/DeleteTaskUseCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/application/Commands/DeleteTaskUseCase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/core/application/UseCases/GetAllTaskUseCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/application/Queries/GetAllTaskUseCase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/core/application/UseCases/UpdateTaskUseCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/application/Commands/UpdateTaskUseCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/application/Commands/CreateTaskCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/application/Commands/CreateTaskCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/application/Commands/DeleteTaskCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/application/Commands/DeleteTaskCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/application/Commands/UpdateTaskCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/application/Commands/UpdateTaskCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/application/DTOs/CreateTaskInputDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/application/DTOs/CreateTaskInputDTO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/application/DTOs/UpdateTaskInputDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/application/DTOs/UpdateTaskInputDTO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/application/Queries/GetAllTaskQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/application/Queries/GetAllTaskQuery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/application/Shared/IdGenerator.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/application/Shared/IdGenerator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/domain/Entities/Task.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/domain/Entities/Task.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/domain/Enums/TaskStatus.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/domain/Enums/TaskStatus.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/domain/Exceptions/DomainError.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/domain/Exceptions/DomainError.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/domain/Exceptions/InvalidDescriptionException.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/domain/Exceptions/InvalidDescriptionException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/domain/Exceptions/InvalidIdException.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/domain/Exceptions/InvalidIdException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/domain/Exceptions/InvalidStatusException.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/domain/Exceptions/InvalidStatusException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/domain/Exceptions/InvalidTimestampException.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/domain/Exceptions/InvalidTimestampException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/domain/Exceptions/InvalidTitleException.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/domain/Exceptions/InvalidTitleException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/domain/Exceptions/TaskNotFoundException.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/domain/Exceptions/TaskNotFoundException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/domain/Repositories/TaskRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/domain/Repositories/TaskRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/domain/VO/TaskId.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/domain/VO/TaskId.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/domain/Validation/SharedBusinessValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/domain/Validation/SharedBusinessValidation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/domain/Validation/TaskBusinessValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/domain/Validation/TaskBusinessValidation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/domain/Validation/TaskInvariantValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/domain/Validation/TaskInvariantValidation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Unit/Application/UseCases/CreateTaskUseCaseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/CreateTaskUseCaseTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Unit/Application/UseCases/DeleteTaskUseCaseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/DeleteTaskUseCaseTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Unit/Application/UseCases/GetAllTaskUseCaseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/GetAllTaskUseCaseTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Unit/Application/UseCases/UpdateTaskUseCaseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/UpdateTaskUseCaseTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Entities/TaskTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Entities/TaskTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Enums/TaskStatusTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Enums/TaskStatusTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/VO/TaskIdTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/VO/TaskIdTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Validation/TaskInvariantValidationTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Validation/TaskInvariantValidationTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,46 +200,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Pest.DeleteTaskUseCaseTest.php::`DeleteTaskUseCase` → `execute()` → it propagates TaskNotFoundException with correct message.executor": "Run",
-    "Pest.TaskIdTest.php::`TaskId Value Object` → .executor": "Run",
-    "Pest.TaskInvariantValidationTest.php::`TaskInvariantValidation` → .executor": "Run",
-    "Pest.TaskStatusTest.php::`TaskStatus Enum` → .executor": "Run",
-    "Pest.TaskStatusTest.php::`TaskStatus Enum` → it COMPETED has correct value.executor": "Run",
-    "Pest.TaskStatusTest.php::`TaskStatus Enum` → it creation from invalid value throws error.executor": "Run",
-    "Pest.TaskTest.php::`Task Entity` → .executor": "Run",
-    "Pest.UpdateTaskUseCaseTest.php::`UpdateTaskUseCase` → .executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "main",
-    "laravel_idea.dialogs.codeGeneration.window.createController.width": "400",
-    "laravel_idea.dialogs.codeGeneration.window.createController.x": "760",
-    "laravel_idea.dialogs.codeGeneration.window.createController.y": "414",
-    "laravel_idea.dialogs.code_generation:createController.width": "400",
-    "laravel_idea.dialogs.code_generation:createController.x": "760",
-    "laravel_idea.dialogs.code_generation:createController.y": "460",
-    "laravel_idea.dialogs.code_generation:createFormRequest.width": "400",
-    "laravel_idea.dialogs.code_generation:createFormRequest.x": "760",
-    "laravel_idea.dialogs.code_generation:createFormRequest.y": "431",
-    "last_opened_file_path": "/home/karoljaron/Projects/taskup-clone-laravel/app/core/application/Queries",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/home/karoljaron/Projects/taskup-clone-laravel/node_modules/prettier",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "ts.external.directory.path": "/home/karoljaron/Projects/taskup-clone-laravel/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Pest.DeleteTaskUseCaseTest.php::`DeleteTaskUseCase` → `execute()` → it propagates TaskNotFoundException with correct message.executor&quot;: &quot;Run&quot;,
+    &quot;Pest.TaskIdTest.php::`TaskId Value Object` → .executor&quot;: &quot;Run&quot;,
+    &quot;Pest.TaskInvariantValidationTest.php::`TaskInvariantValidation` → .executor&quot;: &quot;Run&quot;,
+    &quot;Pest.TaskStatusTest.php::`TaskStatus Enum` → .executor&quot;: &quot;Run&quot;,
+    &quot;Pest.TaskStatusTest.php::`TaskStatus Enum` → it COMPETED has correct value.executor&quot;: &quot;Run&quot;,
+    &quot;Pest.TaskStatusTest.php::`TaskStatus Enum` → it creation from invalid value throws error.executor&quot;: &quot;Run&quot;,
+    &quot;Pest.TaskTest.php::`Task Entity` → .executor&quot;: &quot;Run&quot;,
+    &quot;Pest.UpdateTaskUseCaseTest.php::`UpdateTaskUseCase` → .executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;laravel_idea.dialogs.codeGeneration.window.createController.width&quot;: &quot;400&quot;,
+    &quot;laravel_idea.dialogs.codeGeneration.window.createController.x&quot;: &quot;760&quot;,
+    &quot;laravel_idea.dialogs.codeGeneration.window.createController.y&quot;: &quot;414&quot;,
+    &quot;laravel_idea.dialogs.code_generation:createController.width&quot;: &quot;400&quot;,
+    &quot;laravel_idea.dialogs.code_generation:createController.x&quot;: &quot;760&quot;,
+    &quot;laravel_idea.dialogs.code_generation:createController.y&quot;: &quot;460&quot;,
+    &quot;laravel_idea.dialogs.code_generation:createFormRequest.width&quot;: &quot;400&quot;,
+    &quot;laravel_idea.dialogs.code_generation:createFormRequest.x&quot;: &quot;760&quot;,
+    &quot;laravel_idea.dialogs.code_generation:createFormRequest.y&quot;: &quot;431&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/karoljaron/Projects/taskup-clone-laravel/app/core/application/Queries&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/home/karoljaron/Projects/taskup-clone-laravel/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/karoljaron/Projects/taskup-clone-laravel/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "vue.recent.templates": [
-      "Vue Composition API Component"
+  &quot;keyToStringList&quot;: {
+    &quot;vue.recent.templates&quot;: [
+      &quot;Vue Composition API Component&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/core/application/Queries" />

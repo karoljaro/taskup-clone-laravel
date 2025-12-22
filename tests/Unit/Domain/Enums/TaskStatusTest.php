@@ -1,6 +1,6 @@
 <?php
 
-use App\core\domain\Enums\TaskStatus;
+use App\Core\domain\Enums\TaskStatus;
 
 describe('TaskStatus Enum', function () {
     it('has required cases', function () {

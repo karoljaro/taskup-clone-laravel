@@ -1,12 +1,12 @@
 <?php
 
-use App\core\application\Commands\UpdateTaskCommand;
-use App\core\application\DTOs\UpdateTaskInputDTO;
-use App\core\domain\Repositories\TaskRepository;
-use App\core\domain\Entities\Task;
-use App\core\domain\Enums\TaskStatus;
-use App\core\domain\Exceptions\TaskNotFoundException;
-use App\core\domain\VO\TaskId;
+use App\Core\application\Commands\UpdateTaskCommand;
+use App\Core\application\DTOs\UpdateTaskInputDTO;
+use App\Core\domain\Repositories\TaskRepository;
+use App\Core\domain\Entities\Task;
+use App\Core\domain\Enums\TaskStatus;
+use App\Core\domain\Exceptions\TaskNotFoundException;
+use App\Core\domain\VO\TaskId;
 
 describe('UpdateTaskCommand', function () {
     describe('execute()', function () {
