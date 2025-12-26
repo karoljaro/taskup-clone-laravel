@@ -238,6 +238,54 @@ describe('Task Entity', function () {
         });
     });
 
+    describe('Reconstruct factory', function () {
+        it('can reconstruct task from persistence data', function () {
+            $id = new TaskId('f47ac10b-58cc-4372-a567-0e02b2c3d479');
+            $title = 'Buy groceries';
+            $description = 'Milk and eggs';
+            $status = TaskStatus::IN_PROGRESS;
+            $createdAt = new DateTimeImmutable('2025-01-01 10:00:00');
+            $updatedAt = new DateTimeImmutable('2025-01-02 15:30:00');
+
+            $task = Task::reconstruct(
+                id: $id,
+                title: $title,
+                description: $description,
+                status: $status,
+                createdAt: $createdAt,
+                updatedAt: $updatedAt
+            );
+
+            expect($task)->toBeInstanceOf(Task::class)
+                ->and($task->getId())->toEqual($id)
+                ->and($task->getTitle())->toBe($title)
+                ->and($task->getDescription())->toBe($description)
+                ->and($task->getStatus())->toBe($status)
+                ->and($task->getCreatedAt())->toEqual($createdAt)
+                ->and($task->getUpdatedAt())->toEqual($updatedAt);
+        });
+
+        it('reconstructed task can be updated after reconstruction', function () {
+            $task = Task::reconstruct(
+                id: new TaskId('f47ac10b-58cc-4372-a567-0e02b2c3d479'),
+                title: 'Original title',
+                description: 'Original description',
+                status: TaskStatus::TODO,
+                createdAt: new DateTimeImmutable('2025-01-01 10:00:00'),
+                updatedAt: new DateTimeImmutable('2025-01-01 10:00:00')
+            );
+
+            $originalCreatedAt = $task->getCreatedAt();
+            sleep(1);
+
+            $task->update(title: 'Updated title');
+
+            expect($task->getTitle())->toBe('Updated title')
+                ->and($task->getCreatedAt())->toEqual($originalCreatedAt)
+                ->and($task->getUpdatedAt() > new DateTimeImmutable('2025-01-01 10:00:00'))->toBeTrue();
+        });
+    });
+
     describe('Getters', function () {
         it('getId returns TaskId instance', function () {
             $task = Task::create(

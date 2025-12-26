@@ -2,10 +2,10 @@
 
 use App\Core\Application\Commands\UpdateTaskCommand;
 use App\Core\Application\DTOs\UpdateTaskInputDTO;
-use App\Core\Domain\Repositories\TaskRepository;
 use App\Core\Domain\Entities\Task;
 use App\Core\Domain\Enums\TaskStatus;
 use App\Core\Domain\Exceptions\TaskNotFoundException;
+use App\Core\Domain\Repositories\TaskRepository;
 use App\Core\Domain\VO\TaskId;
 
 describe('UpdateTaskCommand', function () {

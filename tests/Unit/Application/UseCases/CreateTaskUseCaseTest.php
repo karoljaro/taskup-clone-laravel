@@ -3,9 +3,9 @@
 use App\Core\Application\Commands\CreateTaskCommand;
 use App\Core\Application\DTOs\CreateTaskInputDTO;
 use App\Core\Application\Shared\IdGenerator;
-use App\Core\Domain\Repositories\TaskRepository;
 use App\Core\Domain\Entities\Task;
 use App\Core\Domain\Enums\TaskStatus;
+use App\Core\Domain\Repositories\TaskRepository;
 
 describe('CreateTaskCommand', function () {
     describe('execute()', function () {

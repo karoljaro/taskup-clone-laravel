@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="refactor(): remove test user creation from DatabaseSeeder and update workspace.xml">
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Infrastructure/Http/Exceptions/ExceptionToHttpMapperTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Infrastructure/Mappers/TaskMapperTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Infrastructure/Repositories/EloquentTaskRepositoryTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Persistence/Mappers/TaskMapper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Persistence/Mappers/TaskMapper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Application/UseCases/CreateTaskUseCaseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/CreateTaskUseCaseTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Application/UseCases/GetAllTaskUseCaseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/GetAllTaskUseCaseTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Application/UseCases/UpdateTaskUseCaseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/UpdateTaskUseCaseTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Entities/TaskTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Entities/TaskTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
