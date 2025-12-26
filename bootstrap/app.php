@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Exceptions\ExceptionToHttpMapper;
+use App\Core\Domain\Exceptions\DomainError;
 use App\Http\Middleware\HandleInertiaRequests;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -19,5 +21,7 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        //
+        $exceptions->render(function (DomainError $e) {
+            return ExceptionToHttpMapper::map($e);
+        });
     })->create();
