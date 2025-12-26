@@ -3,11 +3,11 @@
 namespace App\Persistence\Repositories;
 
 use App\Core\Domain\Entities\Task;
+use App\Core\Domain\Exceptions\TaskNotFoundException;
 use App\Core\Domain\Repositories\TaskRepository;
 use App\Core\Domain\VO\TaskId;
 use App\Persistence\Eloquent\TaskEloquentModel;
 use App\Persistence\Mappers\TaskMapper;
-use App\Core\Domain\Exceptions\TaskNotFoundException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 /**
