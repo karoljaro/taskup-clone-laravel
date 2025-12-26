@@ -42,7 +42,7 @@ class TaskMapper
             'id' => $task->getId()->value(),
             'title' => $task->getTitle(),
             'description' => $task->getDescription(),
-            'status' => $task->getStatus(),
+            'status' => $task->getStatus()->value,
             'created_at' => $task->getCreatedAt(),
             'updated_at' => $task->getUpdatedAt(),
         ];
