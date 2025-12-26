@@ -79,6 +79,22 @@ final class Task
         }
     }
 
+    public static function reconstruct(
+        TaskId $id,
+        string $title,
+        string $description,
+        TaskStatus $status,
+        DateTimeImmutable $createdAt,
+        DateTimeImmutable $updatedAt
+    ): self
+    {
+        $task = new self($id, $title, $description);
+        $task->status = $status;
+        $task->createdAt = $createdAt;
+        $task->updatedAt = $updatedAt;
+        return $task;
+    }
+
 //    ==========================[ GETTERS ]==========================
 
     public function getId(): TaskId

@@ -8,5 +8,10 @@ final class InvalidDescriptionException extends DomainError
     {
         parent::__construct($message);
     }
+
+    public function group(): DomainExceptionGroup
+    {
+        return DomainExceptionGroup::INVALID_INPUT;
+    }
 }
 
