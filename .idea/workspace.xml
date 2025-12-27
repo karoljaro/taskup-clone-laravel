@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="fix(DomainError): add missing newline for code clarity&#10;fix(EloquentTaskRepository): reorder import statements for consistency">
-      <change beforePath="$PROJECT_DIR$/.idea/laravel-idea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-idea.xml" afterDir="false" />
+    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(TaskController): implement CRUD operations for tasks">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TaskController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TaskController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +204,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/home/karoljaron/Projects/taskup-clone-laravel/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.github.copilot.settings.chat.ChatConfigurable&quot;,
     &quot;ts.external.directory.path&quot;: &quot;/home/karoljaron/Projects/taskup-clone-laravel/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -256,8 +258,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-c7e53b3be11b-JavaScript-PS-253.28294.345" />
-        <option value="bundled-php-predefined-a98d8de5180a-09080813851e-com.jetbrains.php.sharedIndexes-PS-253.28294.345" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PS-253.29346.151" />
+        <option value="bundled-php-predefined-a98d8de5180a-0e0d91225499-com.jetbrains.php.sharedIndexes-PS-253.29346.151" />
       </set>
     </attachedChunks>
   </component>
@@ -275,6 +277,9 @@
       <workItem from="1765983759722" duration="4601000" />
       <workItem from="1766051691461" duration="95000" />
       <workItem from="1766052046326" duration="3693000" />
+      <workItem from="1766831806287" duration="32000" />
+      <workItem from="1766832051548" duration="761000" />
+      <workItem from="1766832825573" duration="1431000" />
     </task>
     <task id="LOCAL-00001" summary="refactor(): Create new project without build-in auth.">
       <option name="closed" value="true" />
@@ -564,14 +569,21 @@
       <option name="project" value="LOCAL" />
       <updated>1766756669956</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="feat(TaskController): implement CRUD operations for tasks">
+      <option name="closed" value="true" />
+      <created>1766831638728</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1766831638728</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat(): enhance Task entity with factory method and update functionality" />
     <MESSAGE value="feat(): update Task entity to use timestamps as integers instead of DateTimeImmutable" />
     <MESSAGE value="feat(): add custom exception classes for domain validation" />
     <MESSAGE value="feat(): add validation classes for task and shared business rules" />
@@ -596,7 +608,8 @@
     <MESSAGE value="fix(TaskMapper): correct status value retrieval in task mapping" />
     <MESSAGE value="test(Task): add unit tests for TaskMapper and EloquentTaskRepository" />
     <MESSAGE value="fix(DomainError): add missing newline for code clarity&#10;fix(EloquentTaskRepository): reorder import statements for consistency" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(DomainError): add missing newline for code clarity&#10;fix(EloquentTaskRepository): reorder import statements for consistency" />
+    <MESSAGE value="feat(TaskController): implement CRUD operations for tasks" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(TaskController): implement CRUD operations for tasks" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
