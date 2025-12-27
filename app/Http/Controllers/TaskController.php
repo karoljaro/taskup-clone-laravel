@@ -8,6 +8,7 @@ use App\Core\Application\Commands\UpdateTaskCommand;
 use App\Core\Application\DTOs\CreateTaskInputDTO;
 use App\Core\Application\DTOs\UpdateTaskInputDTO;
 use App\Core\Application\Queries\GetAllTaskQuery;
+use App\Core\Application\Queries\GetTaskByIdQuery;
 use App\Core\Domain\Enums\TaskStatus;
 use App\Core\Domain\VO\TaskId;
 use Illuminate\Http\JsonResponse;
@@ -46,10 +47,11 @@ class TaskController
     /**
      * Display the specified resource.
      */
-    public function show(string $id): JsonResponse
+    public function show(string $id, GetTaskByIdQuery $query): JsonResponse
     {
-        // TODO: Implement GetTaskByIdQuery
-        return response()->json(['error' => 'Not implemented yet'], 501);
+        $taskId = new TaskId($id);
+        $task = $query->execute($taskId);
+        return response()->json($task);
     }
 
     /**
