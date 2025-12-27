@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(TaskController): refactor CRUD operations to use command pattern and DTOs">
-      <change afterPath="$PROJECT_DIR$/app/Core/Application/Queries/GetTaskByIdQuery.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/GetTaskByIdUseCaseTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TaskController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TaskController.php" afterDir="false" />
+    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(TaskController): implement GetTaskByIdQuery for retrieving tasks by ID">
+      <change afterPath="$PROJECT_DIR$/tests/Feature/Infrastructure/EloquentTaskRepositoryIntegrationTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -279,7 +276,7 @@
       <workItem from="1766052046326" duration="3693000" />
       <workItem from="1766831806287" duration="32000" />
       <workItem from="1766832051548" duration="761000" />
-      <workItem from="1766832825573" duration="2443000" />
+      <workItem from="1766832825573" duration="3076000" />
     </task>
     <task id="LOCAL-00001" summary="refactor(): Create new project without build-in auth.">
       <option name="closed" value="true" />
@@ -593,14 +590,21 @@
       <option name="project" value="LOCAL" />
       <updated>1766876840261</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="feat(TaskController): implement GetTaskByIdQuery for retrieving tasks by ID">
+      <option name="closed" value="true" />
+      <created>1766877844812</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1766877844812</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat(): add validation classes for task and shared business rules" />
     <MESSAGE value="feat(): integrate validation for task creation and updates" />
     <MESSAGE value="feat(): integrate validation taskID dto" />
     <MESSAGE value="feat(): refactor task update method to use new properties for title, description, and status" />
@@ -625,7 +629,8 @@
     <MESSAGE value="feat(TaskController): implement CRUD operations for tasks" />
     <MESSAGE value="feat(routes): add API resource routes for tasks" />
     <MESSAGE value="feat(TaskController): refactor CRUD operations to use command pattern and DTOs" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(TaskController): refactor CRUD operations to use command pattern and DTOs" />
+    <MESSAGE value="feat(TaskController): implement GetTaskByIdQuery for retrieving tasks by ID" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(TaskController): implement GetTaskByIdQuery for retrieving tasks by ID" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
