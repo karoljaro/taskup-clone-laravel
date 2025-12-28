@@ -11,6 +11,7 @@ use App\Core\Application\Queries\GetAllTaskQuery;
 use App\Core\Application\Queries\GetTaskByIdQuery;
 use App\Core\Domain\Enums\TaskStatus;
 use App\Core\Domain\VO\TaskId;
+use App\Http\Resources\TaskResource;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,8 @@ class TaskController
     public function index(GetAllTaskQuery $query): JsonResponse
     {
         $tasks = $query->execute();
-        return response()->json($tasks);
+        $resources = array_map(fn($task) => TaskResource::from($task)->jsonSerialize(), $tasks);
+        return response()->json($resources);
     }
 
     /**
@@ -41,7 +43,7 @@ class TaskController
         );
 
         $task = $command->execute($dto);
-        return response()->json($task, 201);
+        return response()->json(TaskResource::from($task), 201);
     }
 
     /**
@@ -51,7 +53,7 @@ class TaskController
     {
         $taskId = new TaskId($id);
         $task = $query->execute($taskId);
-        return response()->json($task);
+        return response()->json(TaskResource::from($task));
     }
 
     /**
@@ -62,7 +64,7 @@ class TaskController
         $validated = $request->validate([
             'title' => 'nullable|string|max:255',
             'description' => 'nullable|string',
-            'status' => 'nullable|string|in:TODO,IN_PROGRESS,DONE',
+            'status' => 'nullable|string|in:todo,in_progress,completed',
         ]);
 
         $dto = new UpdateTaskInputDTO(
@@ -73,7 +75,7 @@ class TaskController
 
         $taskId = new TaskId($id);
         $task = $command->execute($taskId, $dto);
-        return response()->json($task);
+        return response()->json(TaskResource::from($task));
     }
 
     /**

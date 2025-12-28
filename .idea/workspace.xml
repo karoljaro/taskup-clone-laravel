@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(TaskController): implement GetTaskByIdQuery for retrieving tasks by ID">
-      <change afterPath="$PROJECT_DIR$/tests/Feature/Infrastructure/EloquentTaskRepositoryIntegrationTest.php" afterDir="false" />
+    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(TaskResource): create TaskResource for serializing Task entity to JSON">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TaskController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TaskController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -276,7 +277,10 @@
       <workItem from="1766052046326" duration="3693000" />
       <workItem from="1766831806287" duration="32000" />
       <workItem from="1766832051548" duration="761000" />
-      <workItem from="1766832825573" duration="3076000" />
+      <workItem from="1766832825573" duration="4160000" />
+      <workItem from="1766881787801" duration="1990000" />
+      <workItem from="1766883923224" duration="998000" />
+      <workItem from="1766922660273" duration="4804000" />
     </task>
     <task id="LOCAL-00001" summary="refactor(): Create new project without build-in auth.">
       <option name="closed" value="true" />
@@ -598,19 +602,69 @@
       <option name="project" value="LOCAL" />
       <updated>1766877844812</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="feat(tests): add integration tests for EloquentTaskRepository">
+      <option name="closed" value="true" />
+      <created>1766878578168</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1766878578168</updated>
+    </task>
+    <task id="LOCAL-00042" summary="feat(IdGenerator): implement UUID generator and bind to interface in service provider">
+      <option name="closed" value="true" />
+      <created>1766939983343</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1766939983343</updated>
+    </task>
+    <task id="LOCAL-00043" summary="feat(tests): add comprehensive API tests for task endpoints">
+      <option name="closed" value="true" />
+      <created>1766940096040</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1766940096040</updated>
+    </task>
+    <task id="LOCAL-00044" summary="feat(Task): allow nullable description in task reconstruction">
+      <option name="closed" value="true" />
+      <created>1766940110489</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1766940110489</updated>
+    </task>
+    <task id="LOCAL-00045" summary="feat(ExceptionMapper): update INVALID_INPUT mapping to return 422 Unprocessable Entity">
+      <option name="closed" value="true" />
+      <created>1766940134846</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1766940134846</updated>
+    </task>
+    <task id="LOCAL-00046" summary="feat(TaskResource): create TaskResource for serializing Task entity to JSON">
+      <option name="closed" value="true" />
+      <created>1766940146642</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1766940146642</updated>
+    </task>
+    <task id="LOCAL-00047" summary="feat(TaskResource): create TaskResource for serializing Task entity to JSON">
+      <option name="closed" value="true" />
+      <created>1766940159266</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1766940159266</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat(): integrate validation for task creation and updates" />
-    <MESSAGE value="feat(): integrate validation taskID dto" />
-    <MESSAGE value="feat(): refactor task update method to use new properties for title, description, and status" />
-    <MESSAGE value="feat(): update task timestamps to use DateTimeImmutable and enhance validation methods" />
-    <MESSAGE value="feat(): update validation for ID format and enhance Pest configuration" />
-    <MESSAGE value="feat(): add tests for TaskId value object and Task invariant validation" />
     <MESSAGE value="feat(): improve timestamp validation logic in SharedBusinessValidation" />
     <MESSAGE value="feat(): add TaskNotFoundException and TaskRepository interface for task management" />
     <MESSAGE value="feat(): add IdGenerator interface for generating unique identifiers" />
@@ -630,7 +684,13 @@
     <MESSAGE value="feat(routes): add API resource routes for tasks" />
     <MESSAGE value="feat(TaskController): refactor CRUD operations to use command pattern and DTOs" />
     <MESSAGE value="feat(TaskController): implement GetTaskByIdQuery for retrieving tasks by ID" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(TaskController): implement GetTaskByIdQuery for retrieving tasks by ID" />
+    <MESSAGE value="feat(tests): add integration tests for EloquentTaskRepository" />
+    <MESSAGE value="feat(IdGenerator): implement UUID generator and bind to interface in service provider" />
+    <MESSAGE value="feat(tests): add comprehensive API tests for task endpoints" />
+    <MESSAGE value="feat(Task): allow nullable description in task reconstruction" />
+    <MESSAGE value="feat(ExceptionMapper): update INVALID_INPUT mapping to return 422 Unprocessable Entity" />
+    <MESSAGE value="feat(TaskResource): create TaskResource for serializing Task entity to JSON" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(TaskResource): create TaskResource for serializing Task entity to JSON" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
