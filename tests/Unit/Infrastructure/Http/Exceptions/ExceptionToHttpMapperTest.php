@@ -31,12 +31,12 @@ describe('ExceptionToHttpMapper', function () {
             expect($response->getStatusCode())->toBe(404);
         });
 
-        it('maps INVALID_INPUT group to 400 status', function () {
+        it('maps INVALID_INPUT group to 422 status', function () {
             $exception = new InvalidTitleException('Invalid title');
 
             $response = ExceptionToHttpMapper::map($exception);
 
-            expect($response->getStatusCode())->toBe(400);
+            expect($response->getStatusCode())->toBe(422);
         });
 
         it('returns JSON response with error and message', function () {
@@ -87,7 +87,7 @@ describe('ExceptionToHttpMapper', function () {
             $response1 = ExceptionToHttpMapper::map($invalidTitleException);
             $response2 = ExceptionToHttpMapper::map($notFoundException);
 
-            expect($response1->getStatusCode())->toBe(400)
+            expect($response1->getStatusCode())->toBe(422)
                 ->and($response2->getStatusCode())->toBe(404);
         });
 

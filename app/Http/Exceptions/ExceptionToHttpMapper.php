@@ -12,7 +12,7 @@ final class ExceptionToHttpMapper
 {
     private const array HTTP_MAP = [
         DomainExceptionGroup::NOT_FOUND->value => SymfonyResponse::HTTP_NOT_FOUND,
-        DomainExceptionGroup::INVALID_INPUT->value => SymfonyResponse::HTTP_BAD_REQUEST,
+        DomainExceptionGroup::INVALID_INPUT->value => SymfonyResponse::HTTP_UNPROCESSABLE_ENTITY,
         DomainExceptionGroup::CONFLICT->value => SymfonyResponse::HTTP_CONFLICT
     ];
 
