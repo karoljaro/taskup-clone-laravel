@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(TaskController): update task responses to use TaskResource for serialization">
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Infrastructure/Http/Resources/TaskResourceTest.php" afterDir="false" />
+    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="refactor(workspace): update task comments and adjust local tasks counter">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/routes/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +159,7 @@
     </include_path>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -279,7 +281,7 @@
       <workItem from="1766832825573" duration="4160000" />
       <workItem from="1766881787801" duration="1990000" />
       <workItem from="1766883923224" duration="998000" />
-      <workItem from="1766922660273" duration="5383000" />
+      <workItem from="1766922660273" duration="6201000" />
     </task>
     <task id="LOCAL-00001" summary="refactor(): Create new project without build-in auth.">
       <option name="closed" value="true" />
@@ -665,14 +667,21 @@
       <option name="project" value="LOCAL" />
       <updated>1766940271354</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="refactor(workspace): update task comments and adjust local tasks counter">
+      <option name="closed" value="true" />
+      <created>1766940828798</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1766940828798</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat(): add TaskNotFoundException and TaskRepository interface for task management" />
     <MESSAGE value="feat(): add IdGenerator interface for generating unique identifiers" />
     <MESSAGE value="feat(): add CreateTaskInputDTO for task creation input handling" />
     <MESSAGE value="feat(): implement CreateTaskUseCase for task creation logic" />
@@ -697,7 +706,8 @@
     <MESSAGE value="feat(ExceptionMapper): update INVALID_INPUT mapping to return 422 Unprocessable Entity" />
     <MESSAGE value="feat(TaskResource): create TaskResource for serializing Task entity to JSON" />
     <MESSAGE value="feat(TaskController): update task responses to use TaskResource for serialization" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(TaskController): update task responses to use TaskResource for serialization" />
+    <MESSAGE value="refactor(workspace): update task comments and adjust local tasks counter" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(workspace): update task comments and adjust local tasks counter" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
