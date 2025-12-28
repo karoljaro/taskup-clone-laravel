@@ -82,13 +82,13 @@ final class Task
     public static function reconstruct(
         TaskId $id,
         string $title,
-        string $description,
+        ?string $description,
         TaskStatus $status,
         DateTimeImmutable $createdAt,
         DateTimeImmutable $updatedAt
     ): self
     {
-        $task = new self($id, $title, $description);
+        $task = new self($id, $title, $description ?? '');
         $task->status = $status;
         $task->createdAt = $createdAt;
         $task->updatedAt = $updatedAt;
