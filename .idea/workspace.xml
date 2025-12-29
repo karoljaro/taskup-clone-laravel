@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="refactor(workspace): update task comments and adjust local tasks counter">
+    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(User): implement User entity with validation and management methods">
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/Entities/UserTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/VO/EmailTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/VO/HashedPasswordTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/VO/UserIdTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/Validation/UserBusinessValidationTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/Validation/UserInvariantValidationTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/routes/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +163,7 @@
     </include_path>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -203,7 +207,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/home/karoljaron/Projects/taskup-clone-laravel/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.github.copilot.settings.chat.ChatConfigurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;ts.external.directory.path&quot;: &quot;/home/karoljaron/Projects/taskup-clone-laravel/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -246,11 +250,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Pest.DeleteTaskUseCaseTest.php::`DeleteTaskUseCase` → `execute()` → it propagates TaskNotFoundException with correct message" />
         <item itemvalue="Pest.UpdateTaskUseCaseTest.php::`UpdateTaskUseCase` → " />
-        <item itemvalue="Pest.TaskStatusTest.php::`TaskStatus Enum` → " />
-        <item itemvalue="Pest.TaskStatusTest.php::`TaskStatus Enum` → it COMPETED has correct value" />
         <item itemvalue="Pest.TaskStatusTest.php::`TaskStatus Enum` → it creation from invalid value throws error" />
+        <item itemvalue="Pest.TaskStatusTest.php::`TaskStatus Enum` → it COMPETED has correct value" />
+        <item itemvalue="Pest.TaskStatusTest.php::`TaskStatus Enum` → " />
+        <item itemvalue="Pest.DeleteTaskUseCaseTest.php::`DeleteTaskUseCase` → `execute()` → it propagates TaskNotFoundException with correct message" />
       </list>
     </recent_temporary>
   </component>
@@ -281,63 +285,14 @@
       <workItem from="1766832825573" duration="4160000" />
       <workItem from="1766881787801" duration="1990000" />
       <workItem from="1766883923224" duration="998000" />
-      <workItem from="1766922660273" duration="6201000" />
-    </task>
-    <task id="LOCAL-00001" summary="refactor(): Create new project without build-in auth.">
-      <option name="closed" value="true" />
-      <created>1765807617058</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1765807617058</updated>
-    </task>
-    <task id="LOCAL-00002" summary="feat(): add migration configuration files and CI workflows">
-      <option name="closed" value="true" />
-      <created>1765807633117</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1765807633117</updated>
-    </task>
-    <task id="LOCAL-00003" summary="chore(): rename workflow files for consistency">
-      <option name="closed" value="true" />
-      <created>1765807719966</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1765807719966</updated>
-    </task>
-    <task id="LOCAL-00004" summary="feat(): add Home component and update routing to use it">
-      <option name="closed" value="true" />
-      <created>1765815201670</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1765815201670</updated>
-    </task>
-    <task id="LOCAL-00005" summary="feat(): add TaskStatus enum for task management">
-      <option name="closed" value="true" />
-      <created>1765815236649</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1765815236649</updated>
-    </task>
-    <task id="LOCAL-00006" summary="feat(): add Task entity with properties and methods for task management">
-      <option name="closed" value="true" />
-      <created>1765815248948</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1765815248948</updated>
-    </task>
-    <task id="LOCAL-00007" summary="feat(): introduce TaskId value object for task identification">
-      <option name="closed" value="true" />
-      <created>1765816710253</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1765816710253</updated>
+      <workItem from="1766922660273" duration="6532000" />
+      <workItem from="1766942339471" duration="1415000" />
+      <workItem from="1766948238554" duration="1773000" />
+      <workItem from="1766951562203" duration="74000" />
+      <workItem from="1766964694613" duration="167000" />
+      <workItem from="1766967074107" duration="621000" />
+      <workItem from="1767002644772" duration="14343000" />
+      <workItem from="1767042532137" duration="3439000" />
     </task>
     <task id="LOCAL-00008" summary="feat(): enhance Task entity with factory method and update functionality">
       <option name="closed" value="true" />
@@ -675,20 +630,69 @@
       <option name="project" value="LOCAL" />
       <updated>1766940828798</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="chore(dependencies): update composer.lock and workspace.xml for package version changes">
+      <option name="closed" value="true" />
+      <created>1766941655796</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1766941655797</updated>
+    </task>
+    <task id="LOCAL-00051" summary="feat(UserId): create UserId value object for user identification">
+      <option name="closed" value="true" />
+      <created>1767044402002</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1767044402003</updated>
+    </task>
+    <task id="LOCAL-00052" summary="feat(Email): create Email value object for email validation and normalization">
+      <option name="closed" value="true" />
+      <created>1767044414194</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1767044414194</updated>
+    </task>
+    <task id="LOCAL-00053" summary="feat(HashedPassword): create HashedPassword value object for secure password handling">
+      <option name="closed" value="true" />
+      <created>1767044430314</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1767044430314</updated>
+    </task>
+    <task id="LOCAL-00054" summary="feat(Exceptions): create custom exceptions for invalid email, password, username, and user not found">
+      <option name="closed" value="true" />
+      <created>1767044443322</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1767044443322</updated>
+    </task>
+    <task id="LOCAL-00055" summary="feat(Validation): implement user business and invariant validation classes">
+      <option name="closed" value="true" />
+      <created>1767044451445</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1767044451445</updated>
+    </task>
+    <task id="LOCAL-00056" summary="feat(User): implement User entity with validation and management methods">
+      <option name="closed" value="true" />
+      <created>1767044457385</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1767044457385</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat(): add IdGenerator interface for generating unique identifiers" />
-    <MESSAGE value="feat(): add CreateTaskInputDTO for task creation input handling" />
-    <MESSAGE value="feat(): implement CreateTaskUseCase for task creation logic" />
-    <MESSAGE value="feat(): implement UpdateTaskUseCase for task updating logic" />
-    <MESSAGE value="feat(): implement DeleteTaskUseCase for task deletion logic" />
-    <MESSAGE value="feat(): implement GetAllTaskUseCase for retrieving all tasks" />
-    <MESSAGE value="refactor(): change classes to final readonly for task use cases" />
     <MESSAGE value="refactor(): rename use case files and update namespaces to UseCases" />
     <MESSAGE value="refactor(): update namespaces to follow PSR standards and rename use case files" />
     <MESSAGE value="refactor(): remove test user creation from DatabaseSeeder and update workspace.xml" />
@@ -707,7 +711,14 @@
     <MESSAGE value="feat(TaskResource): create TaskResource for serializing Task entity to JSON" />
     <MESSAGE value="feat(TaskController): update task responses to use TaskResource for serialization" />
     <MESSAGE value="refactor(workspace): update task comments and adjust local tasks counter" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(workspace): update task comments and adjust local tasks counter" />
+    <MESSAGE value="chore(dependencies): update composer.lock and workspace.xml for package version changes" />
+    <MESSAGE value="feat(UserId): create UserId value object for user identification" />
+    <MESSAGE value="feat(Email): create Email value object for email validation and normalization" />
+    <MESSAGE value="feat(HashedPassword): create HashedPassword value object for secure password handling" />
+    <MESSAGE value="feat(Exceptions): create custom exceptions for invalid email, password, username, and user not found" />
+    <MESSAGE value="feat(Validation): implement user business and invariant validation classes" />
+    <MESSAGE value="feat(User): implement User entity with validation and management methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(User): implement User entity with validation and management methods" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
