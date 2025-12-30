@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(tests): add unit tests for Email, HashedPassword, UserId, and User validation">
-      <change afterPath="$PROJECT_DIR$/app/Core/Domain/Entities/Token.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Core/Domain/Exceptions/InvalidPlainTextTokenException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Core/Domain/Exceptions/InvalidTokenTimestampException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Core/Domain/Exceptions/TokenNotFoundException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Core/Domain/VO/TokenId.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Core/Domain/Validation/TokenBusinessValidation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Core/Domain/Validation/TokenInvariantValidation.php" afterDir="false" />
+    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(Entities): add Token class for managing token lifecycle and validation">
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/Entities/TokenTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/VO/TokenIdTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/Validation/TokenBusinessValidationTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/Validation/TokenInvariantValidationTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Core/Domain/VO/UserId.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Domain/VO/UserId.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Core/Domain/Validation/TokenInvariantValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Domain/Validation/TokenInvariantValidation.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -295,39 +294,7 @@
       <workItem from="1767002644772" duration="14343000" />
       <workItem from="1767042532137" duration="3479000" />
       <workItem from="1767046908955" duration="1928000" />
-      <workItem from="1767096149280" duration="7133000" />
-    </task>
-    <task id="LOCAL-00010" summary="feat(): add custom exception classes for domain validation">
-      <option name="closed" value="true" />
-      <created>1765881169982</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1765881169982</updated>
-    </task>
-    <task id="LOCAL-00011" summary="feat(): add validation classes for task and shared business rules">
-      <option name="closed" value="true" />
-      <created>1765881187458</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1765881187458</updated>
-    </task>
-    <task id="LOCAL-00012" summary="feat(): integrate validation for task creation and updates">
-      <option name="closed" value="true" />
-      <created>1765881196303</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1765881196303</updated>
-    </task>
-    <task id="LOCAL-00013" summary="feat(): integrate validation for task creation and updates">
-      <option name="closed" value="true" />
-      <created>1765886950309</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1765886950309</updated>
+      <workItem from="1767096149280" duration="8069000" />
     </task>
     <task id="LOCAL-00014" summary="feat(): integrate validation taskID dto">
       <option name="closed" value="true" />
@@ -689,17 +656,45 @@
       <option name="project" value="LOCAL" />
       <updated>1767096469638</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="feat(Exceptions): create custom exceptions for invalid plain text token, token timestamp, and token not found">
+      <option name="closed" value="true" />
+      <created>1767109836081</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1767109836081</updated>
+    </task>
+    <task id="LOCAL-00060" summary="feat(Validation): add TokenBusinessValidation and TokenInvariantValidation classes for token validation">
+      <option name="closed" value="true" />
+      <created>1767109898745</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1767109898746</updated>
+    </task>
+    <task id="LOCAL-00061" summary="feat(Value Objects): add TokenId class for managing token identifiers with validation">
+      <option name="closed" value="true" />
+      <created>1767109916995</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1767109916995</updated>
+    </task>
+    <task id="LOCAL-00062" summary="feat(Entities): add Token class for managing token lifecycle and validation">
+      <option name="closed" value="true" />
+      <created>1767109942507</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1767109942507</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor(): update namespaces to follow PSR standards and rename use case files" />
-    <MESSAGE value="refactor(): remove test user creation from DatabaseSeeder and update workspace.xml" />
-    <MESSAGE value="fix(TaskMapper): correct status value retrieval in task mapping" />
-    <MESSAGE value="test(Task): add unit tests for TaskMapper and EloquentTaskRepository" />
     <MESSAGE value="fix(DomainError): add missing newline for code clarity&#10;fix(EloquentTaskRepository): reorder import statements for consistency" />
     <MESSAGE value="feat(TaskController): implement CRUD operations for tasks" />
     <MESSAGE value="feat(routes): add API resource routes for tasks" />
@@ -721,7 +716,11 @@
     <MESSAGE value="feat(Validation): implement user business and invariant validation classes" />
     <MESSAGE value="feat(User): implement User entity with validation and management methods" />
     <MESSAGE value="feat(tests): add unit tests for Email, HashedPassword, UserId, and User validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(tests): add unit tests for Email, HashedPassword, UserId, and User validation" />
+    <MESSAGE value="feat(Exceptions): create custom exceptions for invalid plain text token, token timestamp, and token not found" />
+    <MESSAGE value="feat(Validation): add TokenBusinessValidation and TokenInvariantValidation classes for token validation" />
+    <MESSAGE value="feat(Value Objects): add TokenId class for managing token identifiers with validation" />
+    <MESSAGE value="feat(Entities): add Token class for managing token lifecycle and validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Entities): add Token class for managing token lifecycle and validation" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
