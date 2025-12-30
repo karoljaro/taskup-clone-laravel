@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(Entities): add Token class for managing token lifecycle and validation">
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/Entities/TokenTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/VO/TokenIdTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/Validation/TokenBusinessValidationTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/Validation/TokenInvariantValidationTest.php" afterDir="false" />
+    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="test(Validation): add unit tests for TokenBusinessValidation and TokenInvariantValidation">
+      <change afterPath="$PROJECT_DIR$/app/Core/Domain/Repositories/TokenRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Core/Domain/VO/UserId.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Domain/VO/UserId.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Core/Domain/Validation/TokenInvariantValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Domain/Validation/TokenInvariantValidation.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,23 +289,13 @@
       <workItem from="1767002644772" duration="14343000" />
       <workItem from="1767042532137" duration="3479000" />
       <workItem from="1767046908955" duration="1928000" />
-      <workItem from="1767096149280" duration="8069000" />
-    </task>
-    <task id="LOCAL-00014" summary="feat(): integrate validation taskID dto">
-      <option name="closed" value="true" />
-      <created>1765886978752</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1765886978752</updated>
-    </task>
-    <task id="LOCAL-00015" summary="feat(): refactor task update method to use new properties for title, description, and status">
-      <option name="closed" value="true" />
-      <created>1765907682623</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1765907682623</updated>
+      <workItem from="1767096149280" duration="8587000" />
+      <workItem from="1767117531598" duration="263000" />
+      <workItem from="1767128930339" duration="581000" />
+      <workItem from="1767129599591" duration="888000" />
+      <workItem from="1767130519249" duration="195000" />
+      <workItem from="1767130749817" duration="110000" />
+      <workItem from="1767130981655" duration="1654000" />
     </task>
     <task id="LOCAL-00016" summary="feat(): update task timestamps to use DateTimeImmutable and enhance validation methods">
       <option name="closed" value="true" />
@@ -688,15 +673,29 @@
       <option name="project" value="LOCAL" />
       <updated>1767109942507</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="refactor(Validation): remove redundant validations from TokenInvariantValidation and add __toString method to UserId">
+      <option name="closed" value="true" />
+      <created>1767110759364</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1767110759364</updated>
+    </task>
+    <task id="LOCAL-00064" summary="test(Validation): add unit tests for TokenBusinessValidation and TokenInvariantValidation">
+      <option name="closed" value="true" />
+      <created>1767110791400</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1767110791400</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix(DomainError): add missing newline for code clarity&#10;fix(EloquentTaskRepository): reorder import statements for consistency" />
-    <MESSAGE value="feat(TaskController): implement CRUD operations for tasks" />
     <MESSAGE value="feat(routes): add API resource routes for tasks" />
     <MESSAGE value="feat(TaskController): refactor CRUD operations to use command pattern and DTOs" />
     <MESSAGE value="feat(TaskController): implement GetTaskByIdQuery for retrieving tasks by ID" />
@@ -720,7 +719,9 @@
     <MESSAGE value="feat(Validation): add TokenBusinessValidation and TokenInvariantValidation classes for token validation" />
     <MESSAGE value="feat(Value Objects): add TokenId class for managing token identifiers with validation" />
     <MESSAGE value="feat(Entities): add Token class for managing token lifecycle and validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Entities): add Token class for managing token lifecycle and validation" />
+    <MESSAGE value="refactor(Validation): remove redundant validations from TokenInvariantValidation and add __toString method to UserId" />
+    <MESSAGE value="test(Validation): add unit tests for TokenBusinessValidation and TokenInvariantValidation" />
+    <option name="LAST_COMMIT_MESSAGE" value="test(Validation): add unit tests for TokenBusinessValidation and TokenInvariantValidation" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
