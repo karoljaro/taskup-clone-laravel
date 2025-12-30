@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(tests): add unit tests for Email, HashedPassword, UserId, and User validation">
-      <change afterPath="$PROJECT_DIR$/app/Core/Domain/Repositories/UserRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Core/Domain/Entities/Token.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Core/Domain/Exceptions/InvalidPlainTextTokenException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Core/Domain/Exceptions/InvalidTokenTimestampException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Core/Domain/Exceptions/TokenNotFoundException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Core/Domain/VO/TokenId.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Core/Domain/Validation/TokenBusinessValidation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Core/Domain/Validation/TokenInvariantValidation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -289,15 +295,7 @@
       <workItem from="1767002644772" duration="14343000" />
       <workItem from="1767042532137" duration="3479000" />
       <workItem from="1767046908955" duration="1928000" />
-      <workItem from="1767096149280" duration="308000" />
-    </task>
-    <task id="LOCAL-00009" summary="feat(): update Task entity to use timestamps as integers instead of DateTimeImmutable">
-      <option name="closed" value="true" />
-      <created>1765869550276</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1765869550276</updated>
+      <workItem from="1767096149280" duration="7133000" />
     </task>
     <task id="LOCAL-00010" summary="feat(): add custom exception classes for domain validation">
       <option name="closed" value="true" />
@@ -683,7 +681,15 @@
       <option name="project" value="LOCAL" />
       <updated>1767046710040</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="feat(tests): add unit tests for Email, HashedPassword, UserId, and User validation">
+      <option name="closed" value="true" />
+      <created>1767096469637</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1767096469638</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
