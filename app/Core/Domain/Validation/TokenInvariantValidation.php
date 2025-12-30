@@ -39,9 +39,6 @@ class TokenInvariantValidation
     ): void
     {
         TokenBusinessValidation::validatePlainTextToken($plainTextToken);
-        TokenBusinessValidation::validateExpiresAt($expiresAt);
-        SharedBusinessValidation::validateId($id);
-        SharedBusinessValidation::validateId($userId);
         SharedBusinessValidation::validateTimeStamp($createdAt);
         SharedBusinessValidation::validateTimeStamp($lastUsedAt);
         SharedBusinessValidation::validateUpdatedAt($createdAt, $lastUsedAt);
