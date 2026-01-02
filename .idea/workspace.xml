@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(Commands): implement user creation, deletion, and update commands with DTOs">
-      <change afterPath="$PROJECT_DIR$/app/Core/Application/Queries/GetUserByEmailQuery.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Core/Application/Queries/GetUserByIdQuery.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Core/Application/Queries/GetUserByUsernameQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Core/Domain/Repositories/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Domain/Repositories/UserRepository.php" afterDir="false" />
+    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(Queries): add GetUserByEmailQuery, GetUserByIdQuery, and GetUserByUsernameQuery for user retrieval">
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/GetUserByEmailQueryTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/GetUserByIdQueryTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/GetUserByUsernameQueryTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,6 +184,8 @@
     "Pest.TaskStatusTest.php::`TaskStatus Enum` → it COMPETED has correct value.executor": "Run",
     "Pest.TaskStatusTest.php::`TaskStatus Enum` → it creation from invalid value throws error.executor": "Run",
     "Pest.TaskTest.php::`Task Entity` → .executor": "Run",
+    "Pest.TokenBusinessValidationTest.php::`TokenBusinessValidation` → .executor": "Run",
+    "Pest.TokenBusinessValidationTest.php::`TokenBusinessValidation` → `validateExpiresAt` → it fails with current time as expiration.executor": "Run",
     "Pest.UpdateTaskUseCaseTest.php::`UpdateTaskUseCase` → .executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
@@ -222,7 +222,7 @@
       <recent name="$PROJECT_DIR$/app/core/application/Command" />
     </key>
   </component>
-  <component name="RunManager" selected="Pest.GetTaskByIdUseCaseTest.php::`GetTaskByIdQuery` → `execute()` → it throws TaskNotFoundException when task does not exist">
+  <component name="RunManager" selected="Pest.TokenBusinessValidationTest.php::`TokenBusinessValidation` → ">
     <configuration name="GetTaskByIdUseCaseTest.php::`GetTaskByIdQuery` → `execute()` → it throws TaskNotFoundException when task does not exist" type="PestRunConfigurationType" temporary="true">
       <PestRunner file="$PROJECT_DIR$/tests/Unit/Application/UseCases/GetTaskByIdUseCaseTest.php" method="`GetTaskByIdQuery` → `execute()` → it throws TaskNotFoundException when task does not exist" scope="Method" />
       <method v="2" />
@@ -231,16 +231,16 @@
       <PestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="ConfigurationFile" use_alternative_configuration_file="true" />
       <method v="2" />
     </configuration>
-    <configuration name="TaskStatusTest.php::`TaskStatus Enum` → it COMPETED has correct value" type="PestRunConfigurationType" temporary="true">
-      <PestRunner file="$PROJECT_DIR$/tests/Unit/Domain/Enums/TaskStatusTest.php" method="`TaskStatus Enum` → it COMPETED has correct value" scope="Method" />
-      <method v="2" />
-    </configuration>
     <configuration name="TaskStatusTest.php::`TaskStatus Enum` → it creation from invalid value throws error" type="PestRunConfigurationType" temporary="true">
       <PestRunner file="$PROJECT_DIR$/tests/Unit/Domain/Enums/TaskStatusTest.php" method="`TaskStatus Enum` → it creation from invalid value throws error" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="TaskStatusTest.php::`TaskStatus Enum` → " type="PestRunConfigurationType" temporary="true">
-      <PestRunner file="$PROJECT_DIR$/tests/Unit/Domain/Enums/TaskStatusTest.php" method="`TaskStatus Enum` → " scope="Method" />
+    <configuration name="TokenBusinessValidationTest.php::`TokenBusinessValidation` → `validateExpiresAt` → it fails with current time as expiration" type="PestRunConfigurationType" temporary="true">
+      <PestRunner file="$PROJECT_DIR$/tests/Unit/Domain/Validation/TokenBusinessValidationTest.php" method="`TokenBusinessValidation` → `validateExpiresAt` → it fails with current time as expiration" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TokenBusinessValidationTest.php::`TokenBusinessValidation` → " type="PestRunConfigurationType" temporary="true">
+      <PestRunner file="$PROJECT_DIR$/tests/Unit/Domain/Validation/TokenBusinessValidationTest.php" method="`TokenBusinessValidation` → " scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="UpdateTaskUseCaseTest.php::`UpdateTaskUseCase` → " type="PestRunConfigurationType" temporary="true">
@@ -249,11 +249,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Pest.TokenBusinessValidationTest.php::`TokenBusinessValidation` → " />
+        <item itemvalue="Pest.TokenBusinessValidationTest.php::`TokenBusinessValidation` → `validateExpiresAt` → it fails with current time as expiration" />
         <item itemvalue="Pest.GetTaskByIdUseCaseTest.php::`GetTaskByIdQuery` → `execute()` → it throws TaskNotFoundException when task does not exist" />
         <item itemvalue="Pest.UpdateTaskUseCaseTest.php::`UpdateTaskUseCase` → " />
         <item itemvalue="Pest.TaskStatusTest.php::`TaskStatus Enum` → it creation from invalid value throws error" />
-        <item itemvalue="Pest.TaskStatusTest.php::`TaskStatus Enum` → it COMPETED has correct value" />
-        <item itemvalue="Pest.TaskStatusTest.php::`TaskStatus Enum` → " />
       </list>
     </recent_temporary>
   </component>
@@ -300,15 +300,7 @@
       <workItem from="1767130519249" duration="195000" />
       <workItem from="1767130749817" duration="110000" />
       <workItem from="1767130981655" duration="3141000" />
-      <workItem from="1767279925492" duration="4805000" />
-    </task>
-    <task id="LOCAL-00018" summary="feat(): add tests for TaskId value object and Task invariant validation">
-      <option name="closed" value="true" />
-      <created>1765962628869</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1765962628869</updated>
+      <workItem from="1767279925492" duration="5736000" />
     </task>
     <task id="LOCAL-00019" summary="feat(): improve timestamp validation logic in SharedBusinessValidation">
       <option name="closed" value="true" />
@@ -694,14 +686,21 @@
       <option name="project" value="LOCAL" />
       <updated>1767285517084</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="feat(Queries): add GetUserByEmailQuery, GetUserByIdQuery, and GetUserByUsernameQuery for user retrieval">
+      <option name="closed" value="true" />
+      <created>1767374869566</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1767374869567</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat(TaskController): implement GetTaskByIdQuery for retrieving tasks by ID" />
     <MESSAGE value="feat(tests): add integration tests for EloquentTaskRepository" />
     <MESSAGE value="feat(IdGenerator): implement UUID generator and bind to interface in service provider" />
     <MESSAGE value="feat(tests): add comprehensive API tests for task endpoints" />
@@ -726,7 +725,8 @@
     <MESSAGE value="test(Validation): add unit tests for TokenBusinessValidation and TokenInvariantValidation" />
     <MESSAGE value="feat(Repositories): add TokenRepository interface for token management operations" />
     <MESSAGE value="feat(Commands): implement user creation, deletion, and update commands with DTOs" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Commands): implement user creation, deletion, and update commands with DTOs" />
+    <MESSAGE value="feat(Queries): add GetUserByEmailQuery, GetUserByIdQuery, and GetUserByUsernameQuery for user retrieval" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Queries): add GetUserByEmailQuery, GetUserByIdQuery, and GetUserByUsernameQuery for user retrieval" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
