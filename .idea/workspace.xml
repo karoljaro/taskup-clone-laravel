@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(Repositories): add TokenRepository interface for token management operations">
-      <change afterPath="$PROJECT_DIR$/app/Core/Application/Commands/CreateUserCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Core/Application/Commands/DeleteUserCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Core/Application/Commands/UpdateUserCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Core/Application/DTOs/CreateUserInputDTO.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Core/Application/DTOs/UpdateUserInputDTO.php" afterDir="false" />
+    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(Commands): implement user creation, deletion, and update commands with DTOs">
+      <change afterPath="$PROJECT_DIR$/app/Core/Application/Queries/GetUserByEmailQuery.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Core/Application/Queries/GetUserByIdQuery.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Core/Application/Queries/GetUserByUsernameQuery.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Core/Domain/Repositories/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Domain/Repositories/UserRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,55 +175,56 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Pest.DeleteTaskUseCaseTest.php::`DeleteTaskUseCase` → `execute()` → it propagates TaskNotFoundException with correct message.executor&quot;: &quot;Run&quot;,
-    &quot;Pest.TaskIdTest.php::`TaskId Value Object` → .executor&quot;: &quot;Run&quot;,
-    &quot;Pest.TaskInvariantValidationTest.php::`TaskInvariantValidation` → .executor&quot;: &quot;Run&quot;,
-    &quot;Pest.TaskStatusTest.php::`TaskStatus Enum` → .executor&quot;: &quot;Run&quot;,
-    &quot;Pest.TaskStatusTest.php::`TaskStatus Enum` → it COMPETED has correct value.executor&quot;: &quot;Run&quot;,
-    &quot;Pest.TaskStatusTest.php::`TaskStatus Enum` → it creation from invalid value throws error.executor&quot;: &quot;Run&quot;,
-    &quot;Pest.TaskTest.php::`Task Entity` → .executor&quot;: &quot;Run&quot;,
-    &quot;Pest.UpdateTaskUseCaseTest.php::`UpdateTaskUseCase` → .executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;laravel_idea.dialogs.codeGeneration.window.createController.width&quot;: &quot;400&quot;,
-    &quot;laravel_idea.dialogs.codeGeneration.window.createController.x&quot;: &quot;760&quot;,
-    &quot;laravel_idea.dialogs.codeGeneration.window.createController.y&quot;: &quot;414&quot;,
-    &quot;laravel_idea.dialogs.code_generation:createController.width&quot;: &quot;400&quot;,
-    &quot;laravel_idea.dialogs.code_generation:createController.x&quot;: &quot;760&quot;,
-    &quot;laravel_idea.dialogs.code_generation:createController.y&quot;: &quot;460&quot;,
-    &quot;laravel_idea.dialogs.code_generation:createFormRequest.width&quot;: &quot;400&quot;,
-    &quot;laravel_idea.dialogs.code_generation:createFormRequest.x&quot;: &quot;760&quot;,
-    &quot;laravel_idea.dialogs.code_generation:createFormRequest.y&quot;: &quot;431&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/karoljaron/Projects/taskup-clone-laravel/app/core/application/Queries&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/home/karoljaron/Projects/taskup-clone-laravel/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/karoljaron/Projects/taskup-clone-laravel/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Pest.DeleteTaskUseCaseTest.php::`DeleteTaskUseCase` → `execute()` → it propagates TaskNotFoundException with correct message.executor": "Run",
+    "Pest.GetTaskByIdUseCaseTest.php::`GetTaskByIdQuery` → `execute()` → it throws TaskNotFoundException when task does not exist.executor": "Run",
+    "Pest.TaskIdTest.php::`TaskId Value Object` → .executor": "Run",
+    "Pest.TaskInvariantValidationTest.php::`TaskInvariantValidation` → .executor": "Run",
+    "Pest.TaskStatusTest.php::`TaskStatus Enum` → .executor": "Run",
+    "Pest.TaskStatusTest.php::`TaskStatus Enum` → it COMPETED has correct value.executor": "Run",
+    "Pest.TaskStatusTest.php::`TaskStatus Enum` → it creation from invalid value throws error.executor": "Run",
+    "Pest.TaskTest.php::`Task Entity` → .executor": "Run",
+    "Pest.UpdateTaskUseCaseTest.php::`UpdateTaskUseCase` → .executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "main",
+    "laravel_idea.dialogs.codeGeneration.window.createController.width": "400",
+    "laravel_idea.dialogs.codeGeneration.window.createController.x": "760",
+    "laravel_idea.dialogs.codeGeneration.window.createController.y": "414",
+    "laravel_idea.dialogs.code_generation:createController.width": "400",
+    "laravel_idea.dialogs.code_generation:createController.x": "760",
+    "laravel_idea.dialogs.code_generation:createController.y": "460",
+    "laravel_idea.dialogs.code_generation:createFormRequest.width": "400",
+    "laravel_idea.dialogs.code_generation:createFormRequest.x": "760",
+    "laravel_idea.dialogs.code_generation:createFormRequest.y": "431",
+    "last_opened_file_path": "/home/karoljaron/Projects/taskup-clone-laravel/app/core/application/Queries",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/home/karoljaron/Projects/taskup-clone-laravel/node_modules/prettier",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/home/karoljaron/Projects/taskup-clone-laravel/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;vue.recent.templates&quot;: [
-      &quot;Vue Composition API Component&quot;
+  "keyToStringList": {
+    "vue.recent.templates": [
+      "Vue Composition API Component"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/core/application/Queries" />
       <recent name="$PROJECT_DIR$/app/core/application/Command" />
     </key>
   </component>
-  <component name="RunManager" selected="Pest.DeleteTaskUseCaseTest.php::`DeleteTaskUseCase` → `execute()` → it propagates TaskNotFoundException with correct message">
-    <configuration name="DeleteTaskUseCaseTest.php::`DeleteTaskUseCase` → `execute()` → it propagates TaskNotFoundException with correct message" type="PestRunConfigurationType" temporary="true">
-      <PestRunner file="$PROJECT_DIR$/tests/Unit/Application/UseCases/DeleteTaskUseCaseTest.php" method="`DeleteTaskUseCase` → `execute()` → it propagates TaskNotFoundException with correct message" scope="Method" />
+  <component name="RunManager" selected="Pest.GetTaskByIdUseCaseTest.php::`GetTaskByIdQuery` → `execute()` → it throws TaskNotFoundException when task does not exist">
+    <configuration name="GetTaskByIdUseCaseTest.php::`GetTaskByIdQuery` → `execute()` → it throws TaskNotFoundException when task does not exist" type="PestRunConfigurationType" temporary="true">
+      <PestRunner file="$PROJECT_DIR$/tests/Unit/Application/UseCases/GetTaskByIdUseCaseTest.php" method="`GetTaskByIdQuery` → `execute()` → it throws TaskNotFoundException when task does not exist" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="Main" type="PestRunConfigurationType">
@@ -249,11 +249,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Pest.GetTaskByIdUseCaseTest.php::`GetTaskByIdQuery` → `execute()` → it throws TaskNotFoundException when task does not exist" />
         <item itemvalue="Pest.UpdateTaskUseCaseTest.php::`UpdateTaskUseCase` → " />
         <item itemvalue="Pest.TaskStatusTest.php::`TaskStatus Enum` → it creation from invalid value throws error" />
         <item itemvalue="Pest.TaskStatusTest.php::`TaskStatus Enum` → it COMPETED has correct value" />
         <item itemvalue="Pest.TaskStatusTest.php::`TaskStatus Enum` → " />
-        <item itemvalue="Pest.DeleteTaskUseCaseTest.php::`DeleteTaskUseCase` → `execute()` → it propagates TaskNotFoundException with correct message" />
       </list>
     </recent_temporary>
   </component>
@@ -300,15 +300,7 @@
       <workItem from="1767130519249" duration="195000" />
       <workItem from="1767130749817" duration="110000" />
       <workItem from="1767130981655" duration="3141000" />
-      <workItem from="1767279925492" duration="2239000" />
-    </task>
-    <task id="LOCAL-00017" summary="feat(): update validation for ID format and enhance Pest configuration">
-      <option name="closed" value="true" />
-      <created>1765962621527</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1765962621527</updated>
+      <workItem from="1767279925492" duration="4805000" />
     </task>
     <task id="LOCAL-00018" summary="feat(): add tests for TaskId value object and Task invariant validation">
       <option name="closed" value="true" />
@@ -694,14 +686,21 @@
       <option name="project" value="LOCAL" />
       <updated>1767132678317</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="feat(Commands): implement user creation, deletion, and update commands with DTOs">
+      <option name="closed" value="true" />
+      <created>1767285517083</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1767285517084</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat(TaskController): refactor CRUD operations to use command pattern and DTOs" />
     <MESSAGE value="feat(TaskController): implement GetTaskByIdQuery for retrieving tasks by ID" />
     <MESSAGE value="feat(tests): add integration tests for EloquentTaskRepository" />
     <MESSAGE value="feat(IdGenerator): implement UUID generator and bind to interface in service provider" />
@@ -726,7 +725,8 @@
     <MESSAGE value="refactor(Validation): remove redundant validations from TokenInvariantValidation and add __toString method to UserId" />
     <MESSAGE value="test(Validation): add unit tests for TokenBusinessValidation and TokenInvariantValidation" />
     <MESSAGE value="feat(Repositories): add TokenRepository interface for token management operations" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Repositories): add TokenRepository interface for token management operations" />
+    <MESSAGE value="feat(Commands): implement user creation, deletion, and update commands with DTOs" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Commands): implement user creation, deletion, and update commands with DTOs" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
