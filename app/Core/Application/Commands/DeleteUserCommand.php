@@ -20,10 +20,9 @@ final readonly class DeleteUserCommand
      *
      * @throws UserNotFoundException
      */
-    public function execute(string $userId): void
+    public function execute(UserId $userId): void
     {
-        $id = new UserId($userId);
-        $this->userRepo->deleteById($id);
+        $this->userRepo->deleteById($userId);
     }
 }
 
