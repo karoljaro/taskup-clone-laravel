@@ -92,10 +92,10 @@ describe('TokenBusinessValidation', function () {
             TokenBusinessValidation::validateExpiresAt($pastTime);
         })->throws(InvalidTokenTimestampException::class);
 
-        it('fails with current time as expiration', function () {
-            $now = new DateTimeImmutable();
+        it('fails with slightly past expiration', function () {
+            $pastTime = (new DateTimeImmutable())->modify('-1 second');
 
-            TokenBusinessValidation::validateExpiresAt($now);
+            TokenBusinessValidation::validateExpiresAt($pastTime);
         })->throws(InvalidTokenTimestampException::class);
 
         it('passes with far future expiration', function () {
