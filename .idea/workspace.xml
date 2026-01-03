@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="test(Validation): update TokenBusinessValidationTest to improve expiration validation cases">
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/CreateUserCommandTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/DeleteUserCommandTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/UpdateUserCommandTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Core/Application/Commands/DeleteUserCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Application/Commands/DeleteUserCommand.php" afterDir="false" />
+    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(tests): add unit tests for CreateUserCommand, DeleteUserCommand, and UpdateUserCommand">
+      <change afterPath="$PROJECT_DIR$/app/Core/Application/Commands/CreateTokenCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Core/Application/Commands/RevokeAllUserTokensCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Core/Application/Commands/RevokeTokenCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Core/Application/Commands/UpdateTokenLastUsedCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Core/Application/DTOs/CreateTokenInputDTO.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Core/Application/Queries/GetTokenByIdQuery.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Core/Application/Queries/GetTokenByUserIdQuery.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/CreateTokenCommandTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/GetTokenByIdQueryTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/GetTokenByUserIdQueryTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/RevokeAllUserTokensCommandTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/RevokeTokenCommandTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Application/UseCases/UpdateTokenLastUsedCommandTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,6 +189,8 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Pest.DeleteTaskUseCaseTest.php::`DeleteTaskUseCase` → `execute()` → it propagates TaskNotFoundException with correct message.executor": "Run",
     "Pest.GetTaskByIdUseCaseTest.php::`GetTaskByIdQuery` → `execute()` → it throws TaskNotFoundException when task does not exist.executor": "Run",
+    "Pest.GetTokenByIdQueryTest.php::`GetTokenByIdQuery` → .executor": "Run",
+    "Pest.GetTokenByUserIdQueryTest.php::`GetTokenByUserIdQuery` → .executor": "Run",
     "Pest.TaskIdTest.php::`TaskId Value Object` → .executor": "Run",
     "Pest.TaskInvariantValidationTest.php::`TaskInvariantValidation` → .executor": "Run",
     "Pest.TaskStatusTest.php::`TaskStatus Enum` → .executor": "Run",
@@ -223,17 +235,21 @@
       <recent name="$PROJECT_DIR$/app/core/application/Command" />
     </key>
   </component>
-  <component name="RunManager" selected="Pest.TokenBusinessValidationTest.php::`TokenBusinessValidation` → ">
+  <component name="RunManager" selected="Pest.GetTokenByIdQueryTest.php::`GetTokenByIdQuery` → ">
     <configuration name="GetTaskByIdUseCaseTest.php::`GetTaskByIdQuery` → `execute()` → it throws TaskNotFoundException when task does not exist" type="PestRunConfigurationType" temporary="true">
       <PestRunner file="$PROJECT_DIR$/tests/Unit/Application/UseCases/GetTaskByIdUseCaseTest.php" method="`GetTaskByIdQuery` → `execute()` → it throws TaskNotFoundException when task does not exist" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="Main" type="PestRunConfigurationType">
-      <PestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="ConfigurationFile" use_alternative_configuration_file="true" />
+    <configuration name="GetTokenByIdQueryTest.php::`GetTokenByIdQuery` → " type="PestRunConfigurationType" temporary="true">
+      <PestRunner file="$PROJECT_DIR$/tests/Unit/Application/UseCases/GetTokenByIdQueryTest.php" method="`GetTokenByIdQuery` → " scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="TaskStatusTest.php::`TaskStatus Enum` → it creation from invalid value throws error" type="PestRunConfigurationType" temporary="true">
-      <PestRunner file="$PROJECT_DIR$/tests/Unit/Domain/Enums/TaskStatusTest.php" method="`TaskStatus Enum` → it creation from invalid value throws error" scope="Method" />
+    <configuration name="GetTokenByUserIdQueryTest.php::`GetTokenByUserIdQuery` → " type="PestRunConfigurationType" temporary="true">
+      <PestRunner file="$PROJECT_DIR$/tests/Unit/Application/UseCases/GetTokenByUserIdQueryTest.php" method="`GetTokenByUserIdQuery` → " scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Main" type="PestRunConfigurationType">
+      <PestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="ConfigurationFile" use_alternative_configuration_file="true" />
       <method v="2" />
     </configuration>
     <configuration name="TokenBusinessValidationTest.php::`TokenBusinessValidation` → `validateExpiresAt` → it fails with current time as expiration" type="PestRunConfigurationType" temporary="true">
@@ -244,17 +260,13 @@
       <PestRunner file="$PROJECT_DIR$/tests/Unit/Domain/Validation/TokenBusinessValidationTest.php" method="`TokenBusinessValidation` → " scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="UpdateTaskUseCaseTest.php::`UpdateTaskUseCase` → " type="PestRunConfigurationType" temporary="true">
-      <PestRunner file="$PROJECT_DIR$/tests/Unit/Application/UseCases/UpdateTaskUseCaseTest.php" method="`UpdateTaskUseCase` → " scope="Method" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Pest.GetTokenByIdQueryTest.php::`GetTokenByIdQuery` → " />
+        <item itemvalue="Pest.GetTokenByUserIdQueryTest.php::`GetTokenByUserIdQuery` → " />
         <item itemvalue="Pest.TokenBusinessValidationTest.php::`TokenBusinessValidation` → " />
         <item itemvalue="Pest.TokenBusinessValidationTest.php::`TokenBusinessValidation` → `validateExpiresAt` → it fails with current time as expiration" />
         <item itemvalue="Pest.GetTaskByIdUseCaseTest.php::`GetTaskByIdQuery` → `execute()` → it throws TaskNotFoundException when task does not exist" />
-        <item itemvalue="Pest.UpdateTaskUseCaseTest.php::`UpdateTaskUseCase` → " />
-        <item itemvalue="Pest.TaskStatusTest.php::`TaskStatus Enum` → it creation from invalid value throws error" />
       </list>
     </recent_temporary>
   </component>
@@ -301,15 +313,8 @@
       <workItem from="1767130519249" duration="195000" />
       <workItem from="1767130749817" duration="110000" />
       <workItem from="1767130981655" duration="3141000" />
-      <workItem from="1767279925492" duration="6683000" />
-    </task>
-    <task id="LOCAL-00021" summary="feat(): add IdGenerator interface for generating unique identifiers">
-      <option name="closed" value="true" />
-      <created>1765984307831</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1765984307831</updated>
+      <workItem from="1767279925492" duration="8367000" />
+      <workItem from="1767435781402" duration="8643000" />
     </task>
     <task id="LOCAL-00022" summary="feat(): add CreateTaskInputDTO for task creation input handling">
       <option name="closed" value="true" />
@@ -695,14 +700,21 @@
       <option name="project" value="LOCAL" />
       <updated>1767376410337</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="feat(tests): add unit tests for CreateUserCommand, DeleteUserCommand, and UpdateUserCommand">
+      <option name="closed" value="true" />
+      <created>1767376744923</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1767376744924</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat(tests): add comprehensive API tests for task endpoints" />
     <MESSAGE value="feat(Task): allow nullable description in task reconstruction" />
     <MESSAGE value="feat(ExceptionMapper): update INVALID_INPUT mapping to return 422 Unprocessable Entity" />
     <MESSAGE value="feat(TaskResource): create TaskResource for serializing Task entity to JSON" />
@@ -727,7 +739,8 @@
     <MESSAGE value="feat(Queries): add GetUserByEmailQuery, GetUserByIdQuery, and GetUserByUsernameQuery for user retrieval" />
     <MESSAGE value="feat(tests): add unit tests for GetUserByEmailQuery, GetUserByIdQuery, and GetUserByUsernameQuery" />
     <MESSAGE value="test(Validation): update TokenBusinessValidationTest to improve expiration validation cases" />
-    <option name="LAST_COMMIT_MESSAGE" value="test(Validation): update TokenBusinessValidationTest to improve expiration validation cases" />
+    <MESSAGE value="feat(tests): add unit tests for CreateUserCommand, DeleteUserCommand, and UpdateUserCommand" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(tests): add unit tests for CreateUserCommand, DeleteUserCommand, and UpdateUserCommand" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
