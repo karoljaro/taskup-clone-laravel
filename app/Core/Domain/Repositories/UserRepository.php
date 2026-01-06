@@ -13,5 +13,6 @@ interface UserRepository
     public function findByEmail(Email $email): User;
     public function findByUsername(string $username): User;
     public function deleteById(UserId $id): void;
-    public function exists(UserId $id): bool;
+    public function emailExists(Email $email): bool;
+    public function usernameExists(string $username): bool;
 }
