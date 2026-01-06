@@ -2,6 +2,9 @@
 
 namespace App\Core\Application\Ports;
 
+use App\Core\Domain\Repositories\TaskRepository;
+use App\Core\Domain\Repositories\TokenRepository;
+use App\Core\Domain\Repositories\UserRepository;
 use Exception;
 
 /**
@@ -34,15 +37,12 @@ interface UnitOfWork
      */
     public function rollback(): void;
 
-    /**
-     * Execute a callback within a transaction.
-     *
-     * Automatically commits on success, rolls back on exception.
-     *
-     * @param callable $callback
-     * @return mixed
-     * @throws Exception If callback fails (exception is re-thrown after rollback)
-     */
-    public function transaction(callable $callback): mixed;
+    // ==========================[ REPOSITORY ACCESSORS ] ==========================
+
+    public function users(): UserRepository;
+
+    public function tasks(): TaskRepository;
+
+    public function tokens(): TokenRepository;
 }
 

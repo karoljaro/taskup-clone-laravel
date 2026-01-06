@@ -3,16 +3,39 @@
 namespace App\Persistence\Shared;
 
 use App\Core\Application\Ports\UnitOfWork;
+use App\Core\Domain\Repositories\TaskRepository;
+use App\Core\Domain\Repositories\TokenRepository;
+use App\Core\Domain\Repositories\UserRepository;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Throwable;
 
 /**
  * Eloquent implementation of UnitOfWork pattern.
- * Manages database transactions using Laravel's DB facade.
+ *
+ * Manages database transactions and provides access to repositories.
+ * Repositories are lazy-loaded on first access.
  */
 final class EloquentUnitOfWork implements UnitOfWork
 {
+    // Repository caches (lazy-loaded)
+    private ?UserRepository $userRepository = null;
+    private ?TaskRepository $taskRepository = null;
+    private ?TokenRepository $tokenRepository = null;
+
+    /**
+     * @param UserRepository $eloquentUserRepository
+     * @param TaskRepository $eloquentTaskRepository
+     * @param TokenRepository $eloquentTokenRepository
+     */
+    public function __construct(
+        private readonly UserRepository $eloquentUserRepository,
+        private readonly TaskRepository $eloquentTaskRepository,
+        private readonly TokenRepository $eloquentTokenRepository
+    ) {}
+
+    // ==========================[ TRANSACTION MANAGEMENT ] ==========================
+
     /**
      * Begin a database transaction.
      *
@@ -51,18 +74,49 @@ final class EloquentUnitOfWork implements UnitOfWork
         DB::rollBack();
     }
 
+
+    // ==========================[ REPOSITORY ACCESSORS ] ==========================
+
     /**
-     * Execute a callback within a transaction.
+     * Get the UserRepository instance.
+     * Lazy-loads the repository on first access.
      *
-     * Automatically commits on success, rolls back on exception.
-     *
-     * @param callable $callback
-     * @return mixed
-     * @throws Throwable If callback fails
+     * @return UserRepository
      */
-    public function transaction(callable $callback): mixed
+    public function users(): UserRepository
     {
-        return DB::transaction($callback);
+        if ($this->userRepository === null) {
+            $this->userRepository = $this->eloquentUserRepository;
+        }
+        return $this->userRepository;
+    }
+
+    /**
+     * Get the TaskRepository instance.
+     * Lazy-loads the repository on first access.
+     *
+     * @return TaskRepository
+     */
+    public function tasks(): TaskRepository
+    {
+        if ($this->taskRepository === null) {
+            $this->taskRepository = $this->eloquentTaskRepository;
+        }
+        return $this->taskRepository;
+    }
+
+    /**
+     * Get the TokenRepository instance.
+     * Lazy-loads the repository on first access.
+     *
+     * @return TokenRepository
+     */
+    public function tokens(): TokenRepository
+    {
+        if ($this->tokenRepository === null) {
+            $this->tokenRepository = $this->eloquentTokenRepository;
+        }
+        return $this->tokenRepository;
     }
 }
 
