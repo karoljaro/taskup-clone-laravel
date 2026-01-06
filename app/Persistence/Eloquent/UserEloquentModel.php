@@ -3,9 +3,12 @@
 namespace App\Persistence\Eloquent;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Sanctum\HasApiTokens;
 
 class UserEloquentModel extends Model
 {
+    use HasApiTokens;
+
     protected $table = 'users';
     protected $primaryKey = 'id';
     public $incrementing = false;

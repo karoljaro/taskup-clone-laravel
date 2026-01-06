@@ -7,7 +7,6 @@ use App\Core\Application\Shared\IdGenerator;
 use App\Core\Domain\Entities\Token;
 use App\Core\Domain\Exceptions\InvalidPlainTextTokenException;
 use App\Core\Domain\Exceptions\InvalidTokenTimestampException;
-use App\Core\Domain\Repositories\TokenRepository;
 
 /**
  * Create a new token for a user.
@@ -15,7 +14,6 @@ use App\Core\Domain\Repositories\TokenRepository;
 final readonly class CreateTokenCommand
 {
     public function __construct(
-        private TokenRepository $tokenRepo,
         private IdGenerator $idGenerator
     ) {}
 
@@ -28,16 +26,13 @@ final readonly class CreateTokenCommand
      * @throws InvalidPlainTextTokenException If plain text token is invalid
      */
     public function execute(CreateTokenInputDTO $input): Token {
-        $genTokenId = $this->idGenerator->generate();
-
         $token = Token::create(
-            id: $genTokenId,
+            id: $this->idGenerator->generate(),
             userId: $input->userId,
             plainTextToken: $input->plainTextToken,
             expiresAt: $input->expiresAt
         );
 
-        $this->tokenRepo->save($token);
 
         return $token;
     }

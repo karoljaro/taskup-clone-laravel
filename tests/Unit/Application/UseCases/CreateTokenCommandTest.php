@@ -4,14 +4,12 @@ use App\Core\Application\Commands\CreateTokenCommand;
 use App\Core\Application\DTOs\CreateTokenInputDTO;
 use App\Core\Application\Shared\IdGenerator;
 use App\Core\Domain\Entities\Token;
-use App\Core\Domain\Repositories\TokenRepository;
 use App\Core\Domain\VO\UserId;
 
 describe('CreateTokenCommand', function () {
     describe('execute()', function () {
         it('creates and saves a new token with valid data', function () {
             $mockIdGenerator = mock(IdGenerator::class);
-            $mockTokenRepo = mock(TokenRepository::class);
 
             $generatedId = '018f47ac-10b5-7abc-8372-a567a0e02b2c';
             $userId = '018f47ac-10b5-7bcd-8901-abcdef123456';
@@ -22,10 +20,7 @@ describe('CreateTokenCommand', function () {
                 ->once()
                 ->andReturn($generatedId);
 
-            $mockTokenRepo->shouldReceive('save')
-                ->once();
-
-            $command = new CreateTokenCommand($mockTokenRepo, $mockIdGenerator);
+            $command = new CreateTokenCommand($mockIdGenerator);
             $input = new CreateTokenInputDTO(
                 userId: new UserId($userId),
                 plainTextToken: $plainTextToken,
@@ -41,15 +36,12 @@ describe('CreateTokenCommand', function () {
 
         it('calls id generator exactly once', function () {
             $mockIdGenerator = mock(IdGenerator::class);
-            $mockTokenRepo = mock(TokenRepository::class);
 
             $mockIdGenerator->shouldReceive('generate')
                 ->once()
                 ->andReturn('018f47ac-10b5-7bcd-8abc-d479a567a0e0');
 
-            $mockTokenRepo->shouldReceive('save');
-
-            $command = new CreateTokenCommand($mockTokenRepo, $mockIdGenerator);
+            $command = new CreateTokenCommand($mockIdGenerator);
             $input = new CreateTokenInputDTO(
                 userId: new UserId('018f47ac-10b5-7cde-8f67-890abcdef123'),
                 plainTextToken: 'token_value_that_is_at_least_32_characters_long_for_validation_1234567',
@@ -59,44 +51,18 @@ describe('CreateTokenCommand', function () {
             $command->execute($input);
         });
 
-        it('calls repository save exactly once', function () {
+        it('returns token with generated ID', function () {
             $mockIdGenerator = mock(IdGenerator::class);
-            $mockTokenRepo = mock(TokenRepository::class);
 
+            $generatedId = '018f47ac-10b5-7def-89bc-def012345678';
             $mockIdGenerator->shouldReceive('generate')
-                ->once()
-                ->andReturn('018f47ac-10b5-7def-89bc-def012345678');
+                ->andReturn($generatedId);
 
-            $mockTokenRepo->shouldReceive('save')
-                ->once();
-
-            $command = new CreateTokenCommand($mockTokenRepo, $mockIdGenerator);
+            $command = new CreateTokenCommand($mockIdGenerator);
             $input = new CreateTokenInputDTO(
                 userId: new UserId('018f47ac-10b5-7e01-8901-f23456f789ab'),
                 plainTextToken: 'another_token_that_is_at_least_32_chars_long_for_validation_test_12345',
                 expiresAt: new DateTimeImmutable('+7 days')
-            );
-
-            $command->execute($input);
-        });
-
-        it('returns token with generated ID', function () {
-            $mockIdGenerator = mock(IdGenerator::class);
-            $mockTokenRepo = mock(TokenRepository::class);
-
-            $generatedId = '018f47ac-10b5-7f12-8a23-456789abcdef';
-
-            $mockIdGenerator->shouldReceive('generate')
-                ->once()
-                ->andReturn($generatedId);
-
-            $mockTokenRepo->shouldReceive('save');
-
-            $command = new CreateTokenCommand($mockTokenRepo, $mockIdGenerator);
-            $input = new CreateTokenInputDTO(
-                userId: new UserId('018f47ac-10b5-7234-8def-567890123456'),
-                plainTextToken: 'token_with_id_that_is_at_least_32_chars_long_for_validation_test_12345',
-                expiresAt: new DateTimeImmutable('+14 days')
             );
 
             $result = $command->execute($input);
@@ -106,18 +72,15 @@ describe('CreateTokenCommand', function () {
 
         it('token is not revoked when created', function () {
             $mockIdGenerator = mock(IdGenerator::class);
-            $mockTokenRepo = mock(TokenRepository::class);
 
             $mockIdGenerator->shouldReceive('generate')
-                ->andReturn('018f47ac-10b5-7abc-8def-567890abcdef');
+                ->andReturn('018f47ac-10b5-7f12-8901-234567890abc');
 
-            $mockTokenRepo->shouldReceive('save');
-
-            $command = new CreateTokenCommand($mockTokenRepo, $mockIdGenerator);
+            $command = new CreateTokenCommand($mockIdGenerator);
             $input = new CreateTokenInputDTO(
-                userId: new UserId('018f47ac-10b5-7456-8bcd-ef234567890a'),
-                plainTextToken: 'active_token_that_is_at_least_32_characters_long_for_validation_test_1234',
-                expiresAt: new DateTimeImmutable('+60 days')
+                userId: new UserId('018f47ac-10b5-7f23-8901-345678901bcd'),
+                plainTextToken: 'token_that_is_long_enough_for_validation_requirements_here_1234567890',
+                expiresAt: new DateTimeImmutable('+14 days')
             );
 
             $result = $command->execute($input);
@@ -127,95 +90,80 @@ describe('CreateTokenCommand', function () {
 
         it('returns token with correct user ID', function () {
             $mockIdGenerator = mock(IdGenerator::class);
-            $mockTokenRepo = mock(TokenRepository::class);
-
-            $userId = '018f47ac-10b5-7567-8cde-f345678901bc';
+            $userId = new UserId('018f47ac-10b5-7f34-8901-456789012cde');
 
             $mockIdGenerator->shouldReceive('generate')
-                ->andReturn('018f47ac-10b5-7678-8def-012345678901');
+                ->andReturn('018f47ac-10b5-7f45-8901-567890123def');
 
-            $mockTokenRepo->shouldReceive('save');
-
-            $command = new CreateTokenCommand($mockTokenRepo, $mockIdGenerator);
+            $command = new CreateTokenCommand($mockIdGenerator);
             $input = new CreateTokenInputDTO(
-                userId: new UserId($userId),
-                plainTextToken: 'user_specific_token_that_is_at_least_32_chars_for_validation_test_12345',
-                expiresAt: new DateTimeImmutable('+30 days')
+                userId: $userId,
+                plainTextToken: 'yet_another_token_long_enough_for_validation_purposes_12345678901234567',
+                expiresAt: new DateTimeImmutable('+60 days')
             );
 
             $result = $command->execute($input);
 
-            expect($result->getUserId()->value())->toBe($userId);
+            expect($result->getUserId()->value())->toBe($userId->value());
         });
 
         it('returns token with correct expiration date', function () {
             $mockIdGenerator = mock(IdGenerator::class);
-            $mockTokenRepo = mock(TokenRepository::class);
-
             $expiresAt = new DateTimeImmutable('+90 days');
 
             $mockIdGenerator->shouldReceive('generate')
-                ->andReturn('018f47ac-10b5-7789-8e01-f234567890ab');
+                ->andReturn('018f47ac-10b5-7f56-8901-6789012345ef');
 
-            $mockTokenRepo->shouldReceive('save');
-
-            $command = new CreateTokenCommand($mockTokenRepo, $mockIdGenerator);
+            $command = new CreateTokenCommand($mockIdGenerator);
             $input = new CreateTokenInputDTO(
-                userId: new UserId('018f47ac-10b5-7890-8f12-3456789abcde'),
-                plainTextToken: 'expiring_token_that_is_at_least_32_chars_long_for_validation_test_1234567',
+                userId: new UserId('018f47ac-10b5-7f67-8901-78901234567f'),
+                plainTextToken: 'token_with_specific_expiration_time_that_is_long_enough_1234567890123456',
                 expiresAt: $expiresAt
             );
 
             $result = $command->execute($input);
 
-            expect($result->getExpiresAt()->getTimestamp())->toBe($expiresAt->getTimestamp());
+            expect($result->getExpiresAt())->toEqual($expiresAt);
         });
 
-        it('repository save receives the created token', function () {
+        it('creates token with null expiration', function () {
             $mockIdGenerator = mock(IdGenerator::class);
-            $mockTokenRepo = mock(TokenRepository::class);
 
             $mockIdGenerator->shouldReceive('generate')
-                ->andReturn('018f47ac-10b5-7901-8023-456789abcdef');
+                ->andReturn('018f47ac-10b5-7f78-8901-890123456789');
 
-            $savedToken = null;
-            $mockTokenRepo->shouldReceive('save')
-                ->andReturnUsing(function ($token) use (&$savedToken) {
-                    $savedToken = $token;
-                });
-
-            $command = new CreateTokenCommand($mockTokenRepo, $mockIdGenerator);
+            $command = new CreateTokenCommand($mockIdGenerator);
             $input = new CreateTokenInputDTO(
-                userId: new UserId('018f47ac-10b5-7a12-8134-56789abcdef0'),
-                plainTextToken: 'saved_token_that_is_at_least_32_characters_long_for_validation_test_1234',
-                expiresAt: new DateTimeImmutable('+30 days')
+                userId: new UserId('018f47ac-10b5-7f89-8901-90123456789a'),
+                plainTextToken: 'never_expiring_token_that_is_long_enough_for_validation_1234567890123456',
+                expiresAt: null
             );
 
             $result = $command->execute($input);
 
-            expect($savedToken)->toBeInstanceOf(Token::class)
-                ->and($savedToken->getId()->value())->toBe($result->getId()->value());
+            expect($result->getExpiresAt())->toBeNull();
         });
 
-        it('creates token with null description', function () {
+        it('sets correct timestamps on creation', function () {
             $mockIdGenerator = mock(IdGenerator::class);
-            $mockTokenRepo = mock(TokenRepository::class);
 
             $mockIdGenerator->shouldReceive('generate')
-                ->andReturn('018f47ac-10b5-7b23-8245-6789abcdef01');
+                ->andReturn('018f47ac-10b5-7f9a-8901-a0123456789b');
 
-            $mockTokenRepo->shouldReceive('save');
-
-            $command = new CreateTokenCommand($mockTokenRepo, $mockIdGenerator);
+            $beforeExecution = new DateTimeImmutable();
+            $command = new CreateTokenCommand($mockIdGenerator);
             $input = new CreateTokenInputDTO(
-                userId: new UserId('018f47ac-10b5-7c34-8356-789abcdef012'),
-                plainTextToken: 'token_with_null_description_that_is_at_least_32_chars_for_validation_1234',
+                userId: new UserId('018f47ac-10b5-7fab-8901-b012345678ac'),
+                plainTextToken: 'token_with_proper_timestamps_that_is_long_enough_1234567890123456789012',
                 expiresAt: new DateTimeImmutable('+30 days')
             );
 
             $result = $command->execute($input);
+            $afterExecution = new DateTimeImmutable();
 
-            expect($result->getPlainTextToken())->toBe($input->plainTextToken);
+            expect($result->getCreatedAt())->toBeGreaterThanOrEqual($beforeExecution)
+                ->and($result->getCreatedAt())->toBeLessThanOrEqual($afterExecution)
+                ->and($result->getLastUsedAt())->toEqual($result->getCreatedAt());
         });
     });
 });

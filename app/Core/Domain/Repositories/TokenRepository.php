@@ -17,19 +17,23 @@ interface TokenRepository
 
     /**
      * Retrieve a token by its ID.
+     * Throws TokenNotFoundException if not found.
      *
      * @param TokenId $id The token ID
-     * @return Token|null The token or null if not found
+     * @return Token The token
+     * @throws \App\Core\Domain\Exceptions\TokenNotFoundException
      */
-    public function findById(TokenId $id): ?Token;
+    public function findById(TokenId $id): Token;
 
     /**
      * Retrieve a token by its plain text value.
+     * Throws TokenNotFoundException if not found.
      *
      * @param string $plainTextToken The plain text token
-     * @return Token|null The token or null if not found
+     * @return Token The token
+     * @throws \App\Core\Domain\Exceptions\TokenNotFoundException
      */
-    public function getByPlainTextToken(string $plainTextToken): ?Token;
+    public function getByPlainTextToken(string $plainTextToken): Token;
 
     /**
      * Retrieve all tokens for a specific user.
