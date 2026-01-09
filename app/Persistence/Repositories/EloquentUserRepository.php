@@ -25,7 +25,6 @@ final readonly class EloquentUserRepository implements UserRepository
             'password' => $user->getPassword()->value(),
         ];
 
-        // Jeśli email został zmieniony - resetuj weryfikację
         $existingUser = $this->model::find($user->getId()->value());
         if ($existingUser && $existingUser->email !== $user->getEmail()->value()) {
             $userData['email_verified_at'] = null;
@@ -67,15 +66,6 @@ final readonly class EloquentUserRepository implements UserRepository
         }
     }
 
-    public function emailExists(Email $email): bool
-    {
-        return $this->model::where('email', $email->value())->exists();
-    }
-
-    public function usernameExists(string $username): bool
-    {
-        return $this->model::where('username', $username)->exists();
-    }
 
     public function deleteById(UserId $id): void
     {
