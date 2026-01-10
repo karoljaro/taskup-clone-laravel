@@ -1,6 +1,7 @@
 <?php
 
 use App\Core\Application\Commands\DeleteTaskCommand;
+use App\Core\Application\Ports\UnitOfWork;
 use App\Core\Domain\Exceptions\TaskNotFoundException;
 use App\Core\Domain\Repositories\TaskRepository;
 use App\Core\Domain\VO\TaskId;
@@ -10,33 +11,45 @@ describe('DeleteTaskCommand', function () {
         it('calls repository deleteByTaskId with correct TaskId', function () {
             $taskId = new TaskId('f47ac10b-58cc-4372-a567-0e02b2c3d479');
 
+            $mockUow = mock(UnitOfWork::class);
             $mockTaskRepo = mock(TaskRepository::class);
+            $mockUow->shouldReceive('begin')->once();
+            $mockUow->shouldReceive('tasks')->andReturn($mockTaskRepo);
             $mockTaskRepo->shouldReceive('deleteByTaskId')
                 ->with($taskId)
                 ->once();
+            $mockUow->shouldReceive('commit')->once();
 
-            $useCase = new DeleteTaskCommand($mockTaskRepo);
+            $useCase = new DeleteTaskCommand($mockUow);
             $useCase->execute($taskId);
         });
 
         it('calls repository deleteByTaskId exactly once', function () {
             $taskId = new TaskId('f47ac10b-58cc-4372-a567-0e02b2c3d479');
 
+            $mockUow = mock(UnitOfWork::class);
             $mockTaskRepo = mock(TaskRepository::class);
+            $mockUow->shouldReceive('begin')->once();
+            $mockUow->shouldReceive('tasks')->andReturn($mockTaskRepo);
             $mockTaskRepo->shouldReceive('deleteByTaskId')
                 ->once();
+            $mockUow->shouldReceive('commit')->once();
 
-            $useCase = new DeleteTaskCommand($mockTaskRepo);
+            $useCase = new DeleteTaskCommand($mockUow);
             $useCase->execute($taskId);
         });
 
         it('returns void', function () {
             $taskId = new TaskId('f47ac10b-58cc-4372-a567-0e02b2c3d479');
 
+            $mockUow = mock(UnitOfWork::class);
             $mockTaskRepo = mock(TaskRepository::class);
+            $mockUow->shouldReceive('begin')->once();
+            $mockUow->shouldReceive('tasks')->andReturn($mockTaskRepo);
             $mockTaskRepo->shouldReceive('deleteByTaskId');
+            $mockUow->shouldReceive('commit')->once();
 
-            $useCase = new DeleteTaskCommand($mockTaskRepo);
+            $useCase = new DeleteTaskCommand($mockUow);
 
             $useCase->execute($taskId);
 
@@ -46,13 +59,17 @@ describe('DeleteTaskCommand', function () {
         it('throws TaskNotFoundException when task does not exist', function () {
             $taskId = new TaskId('f47ac10b-58cc-4372-a567-0e02b2c3d479');
 
+            $mockUow = mock(UnitOfWork::class);
             $mockTaskRepo = mock(TaskRepository::class);
+            $mockUow->shouldReceive('begin')->once();
+            $mockUow->shouldReceive('tasks')->andReturn($mockTaskRepo);
             $mockTaskRepo->shouldReceive('deleteByTaskId')
                 ->with($taskId)
                 ->once()
                 ->andThrow(new TaskNotFoundException($taskId));
+            $mockUow->shouldReceive('rollback')->once();
 
-            $useCase = new DeleteTaskCommand($mockTaskRepo);
+            $useCase = new DeleteTaskCommand($mockUow);
 
             expect(fn() => $useCase->execute($taskId))
                 ->toThrow(TaskNotFoundException::class);
@@ -61,14 +78,18 @@ describe('DeleteTaskCommand', function () {
         it('propagates TaskNotFoundException with correct message', function () {
             $taskId = new TaskId('f47ac10b-58cc-4372-a567-0e02b2c3d479');
 
+            $mockUow = mock(UnitOfWork::class);
             $mockTaskRepo = mock(TaskRepository::class);
             $exception = new TaskNotFoundException($taskId);
+            $mockUow->shouldReceive('begin')->once();
+            $mockUow->shouldReceive('tasks')->andReturn($mockTaskRepo);
             $mockTaskRepo->shouldReceive('deleteByTaskId')
                 ->with($taskId)
                 ->once()
                 ->andThrow($exception);
+            $mockUow->shouldReceive('rollback')->once();
 
-            $useCase = new DeleteTaskCommand($mockTaskRepo);
+            $useCase = new DeleteTaskCommand($mockUow);
 
             expect(fn() => $useCase->execute($taskId))
                 ->toThrow(TaskNotFoundException::class);
@@ -83,12 +104,16 @@ describe('DeleteTaskCommand', function () {
 
             foreach ($taskIds as $id) {
                 $taskId = new TaskId($id);
+                $mockUow = mock(UnitOfWork::class);
                 $mockTaskRepo = mock(TaskRepository::class);
+                $mockUow->shouldReceive('begin')->once();
+                $mockUow->shouldReceive('tasks')->andReturn($mockTaskRepo);
                 $mockTaskRepo->shouldReceive('deleteByTaskId')
                     ->with($taskId)
                     ->once();
+                $mockUow->shouldReceive('commit')->once();
 
-                $useCase = new DeleteTaskCommand($mockTaskRepo);
+                $useCase = new DeleteTaskCommand($mockUow);
                 $useCase->execute($taskId);
             }
         });
