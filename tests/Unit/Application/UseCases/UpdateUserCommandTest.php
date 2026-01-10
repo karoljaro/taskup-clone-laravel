@@ -2,6 +2,7 @@
 
 use App\Core\Application\Commands\UpdateUserCommand;
 use App\Core\Application\DTOs\UpdateUserInputDTO;
+use App\Core\Application\Ports\UnitOfWork;
 use App\Core\Domain\Entities\User;
 use App\Core\Domain\Repositories\UserRepository;
 use App\Core\Domain\VO\UserId;
@@ -9,6 +10,7 @@ use App\Core\Domain\VO\UserId;
 describe('UpdateUserCommand', function () {
     describe('execute()', function () {
         it('updates user username', function () {
+            $mockUow = mock(UnitOfWork::class);
             $mockUserRepo = mock(UserRepository::class);
 
             $userId = new UserId('f47ac10b-58cc-4372-a567-0e02b2c3d479');
@@ -19,12 +21,16 @@ describe('UpdateUserCommand', function () {
                 'Password123!'
             );
 
+            $mockUow->shouldReceive('begin')->once();
+            $mockUow->shouldReceive('users')->andReturn($mockUserRepo);
             $mockUserRepo->shouldReceive('findById')
                 ->with($userId)
                 ->once()
                 ->andReturn($user);
+            $mockUserRepo->shouldReceive('save')->once();
+            $mockUow->shouldReceive('commit')->once();
 
-            $command = new UpdateUserCommand($mockUserRepo);
+            $command = new UpdateUserCommand($mockUow);
             $input = new UpdateUserInputDTO(username: 'newusername');
 
             $command->execute($userId, $input);
@@ -33,6 +39,7 @@ describe('UpdateUserCommand', function () {
         });
 
         it('updates user email', function () {
+            $mockUow = mock(UnitOfWork::class);
             $mockUserRepo = mock(UserRepository::class);
 
             $userId = new UserId('f47ac10b-58cc-4372-a567-0e02b2c3d479');
@@ -43,12 +50,16 @@ describe('UpdateUserCommand', function () {
                 'Password123!'
             );
 
+            $mockUow->shouldReceive('begin')->once();
+            $mockUow->shouldReceive('users')->andReturn($mockUserRepo);
             $mockUserRepo->shouldReceive('findById')
                 ->with($userId)
                 ->once()
                 ->andReturn($user);
+            $mockUserRepo->shouldReceive('save')->once();
+            $mockUow->shouldReceive('commit')->once();
 
-            $command = new UpdateUserCommand($mockUserRepo);
+            $command = new UpdateUserCommand($mockUow);
             $input = new UpdateUserInputDTO(email: 'new@example.com');
 
             $command->execute($userId, $input);
@@ -57,6 +68,7 @@ describe('UpdateUserCommand', function () {
         });
 
         it('updates user password', function () {
+            $mockUow = mock(UnitOfWork::class);
             $mockUserRepo = mock(UserRepository::class);
 
             $userId = new UserId('f47ac10b-58cc-4372-a567-0e02b2c3d479');
@@ -69,12 +81,16 @@ describe('UpdateUserCommand', function () {
 
             $oldPasswordValue = $user->getPassword()->value();
 
+            $mockUow->shouldReceive('begin')->once();
+            $mockUow->shouldReceive('users')->andReturn($mockUserRepo);
             $mockUserRepo->shouldReceive('findById')
                 ->with($userId)
                 ->once()
                 ->andReturn($user);
+            $mockUserRepo->shouldReceive('save')->once();
+            $mockUow->shouldReceive('commit')->once();
 
-            $command = new UpdateUserCommand($mockUserRepo);
+            $command = new UpdateUserCommand($mockUow);
             $input = new UpdateUserInputDTO(plainPassword: 'NewPassword456!');
 
             $command->execute($userId, $input);
@@ -83,6 +99,7 @@ describe('UpdateUserCommand', function () {
         });
 
         it('updates multiple user properties at once', function () {
+            $mockUow = mock(UnitOfWork::class);
             $mockUserRepo = mock(UserRepository::class);
 
             $userId = new UserId('f47ac10b-58cc-4372-a567-0e02b2c3d479');
@@ -93,12 +110,16 @@ describe('UpdateUserCommand', function () {
                 'OldPassword123!'
             );
 
+            $mockUow->shouldReceive('begin')->once();
+            $mockUow->shouldReceive('users')->andReturn($mockUserRepo);
             $mockUserRepo->shouldReceive('findById')
                 ->with($userId)
                 ->once()
                 ->andReturn($user);
+            $mockUserRepo->shouldReceive('save')->once();
+            $mockUow->shouldReceive('commit')->once();
 
-            $command = new UpdateUserCommand($mockUserRepo);
+            $command = new UpdateUserCommand($mockUow);
             $input = new UpdateUserInputDTO(
                 username: 'newusername',
                 email: 'new@example.com',
@@ -112,6 +133,7 @@ describe('UpdateUserCommand', function () {
         });
 
         it('does not change properties when null values provided', function () {
+            $mockUow = mock(UnitOfWork::class);
             $mockUserRepo = mock(UserRepository::class);
 
             $userId = new UserId('f47ac10b-58cc-4372-a567-0e02b2c3d479');
@@ -125,18 +147,42 @@ describe('UpdateUserCommand', function () {
             $originalUsername = $user->getUsername();
             $originalEmail = $user->getEmail()->value();
 
+            $mockUow->shouldReceive('begin')->once();
+            $mockUow->shouldReceive('users')->andReturn($mockUserRepo);
             $mockUserRepo->shouldReceive('findById')
                 ->with($userId)
                 ->once()
                 ->andReturn($user);
+            $mockUserRepo->shouldReceive('save')->once();
+            $mockUow->shouldReceive('commit')->once();
 
-            $command = new UpdateUserCommand($mockUserRepo);
+            $command = new UpdateUserCommand($mockUow);
             $input = new UpdateUserInputDTO();
 
             $command->execute($userId, $input);
 
             expect($user->getUsername())->toBe($originalUsername)
                 ->and($user->getEmail()->value())->toBe($originalEmail);
+        });
+
+        it('rolls back transaction on failure', function () {
+            $mockUow = mock(UnitOfWork::class);
+            $mockUserRepo = mock(UserRepository::class);
+
+            $userId = new UserId('f47ac10b-58cc-4372-a567-0e02b2c3d479');
+
+            $mockUow->shouldReceive('begin')->once();
+            $mockUow->shouldReceive('users')->andReturn($mockUserRepo);
+            $mockUserRepo->shouldReceive('findById')
+                ->with($userId)
+                ->once()
+                ->andThrow(new Exception('User not found'));
+            $mockUow->shouldReceive('rollback')->once();
+
+            $command = new UpdateUserCommand($mockUow);
+            $input = new UpdateUserInputDTO(username: 'newusername');
+
+            expect(fn() => $command->execute($userId, $input))->toThrow(Exception::class);
         });
     });
 });
