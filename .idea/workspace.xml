@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(tests): add unit tests for CreateUserCommand, DeleteUserCommand, and UpdateUserCommand">
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/laravel-idea-personal.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Core/Application/Ports/UnitOfWork.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Persistence/Shared/EloquentUnitOfWork.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/ssr/assets/Home-B8wDMRKz.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/ssr/ssr-manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/ssr/ssr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/actions/App/Http/Controllers/TaskController.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/actions/App/Http/Controllers/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/actions/App/Http/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/actions/App/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/routes/tasks/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Persistence/Shared/EloquentUnitOfWorkTest.php" afterDir="false" />
+    <list default="true" id="e8fc06b8-f53b-471d-80f8-22ec79733d6e" name="Changes" comment="feat(Providers): register Token and User repositories with dependency injection">
+      <change afterPath="$PROJECT_DIR$/IMPLEMENTATION_PLAN.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Core/Application/Commands/LoginCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Core/Application/Commands/RegisterCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Core/Application/DTOs/LoginInputDTO.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Core/Application/DTOs/LoginOutputDTO.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Core/Application/DTOs/RegisterInputDTO.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Core/Application/DTOs/RegisterOutputDTO.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Core/Domain/Exceptions/InvalidCredentialsException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/AuthResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/UserResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,6 +166,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
       <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/vendor/laravel/sanctum" />
     </include_path>
   </component>
   <component name="ProblemsViewState">
@@ -263,10 +262,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Pest.GetTokenByIdQueryTest.php::`GetTokenByIdQuery` → " />
-        <item itemvalue="Pest.GetTokenByUserIdQueryTest.php::`GetTokenByUserIdQuery` → " />
-        <item itemvalue="Pest.TokenBusinessValidationTest.php::`TokenBusinessValidation` → " />
         <item itemvalue="Pest.TokenBusinessValidationTest.php::`TokenBusinessValidation` → `validateExpiresAt` → it fails with current time as expiration" />
+        <item itemvalue="Pest.TokenBusinessValidationTest.php::`TokenBusinessValidation` → " />
+        <item itemvalue="Pest.GetTokenByUserIdQueryTest.php::`GetTokenByUserIdQuery` → " />
+        <item itemvalue="Pest.GetTokenByIdQueryTest.php::`GetTokenByIdQuery` → " />
         <item itemvalue="Pest.GetTaskByIdUseCaseTest.php::`GetTaskByIdQuery` → `execute()` → it throws TaskNotFoundException when task does not exist" />
       </list>
     </recent_temporary>
@@ -317,102 +316,10 @@
       <workItem from="1767279925492" duration="8367000" />
       <workItem from="1767435781402" duration="8643000" />
       <workItem from="1767462879432" duration="1071000" />
-    </task>
-    <task id="LOCAL-00023" summary="feat(): implement CreateTaskUseCase for task creation logic">
-      <option name="closed" value="true" />
-      <created>1765984339618</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1765984339618</updated>
-    </task>
-    <task id="LOCAL-00024" summary="feat(): implement UpdateTaskUseCase for task updating logic">
-      <option name="closed" value="true" />
-      <created>1765995472055</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1765995472055</updated>
-    </task>
-    <task id="LOCAL-00025" summary="feat(): implement DeleteTaskUseCase for task deletion logic">
-      <option name="closed" value="true" />
-      <created>1765996975147</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1765996975147</updated>
-    </task>
-    <task id="LOCAL-00026" summary="feat(): implement GetAllTaskUseCase for retrieving all tasks">
-      <option name="closed" value="true" />
-      <created>1766053773427</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1766053773427</updated>
-    </task>
-    <task id="LOCAL-00027" summary="refactor(): change classes to final readonly for task use cases">
-      <option name="closed" value="true" />
-      <created>1766054138444</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1766054138444</updated>
-    </task>
-    <task id="LOCAL-00028" summary="refactor(): change classes to final readonly for task use cases">
-      <option name="closed" value="true" />
-      <created>1766054329162</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1766054329162</updated>
-    </task>
-    <task id="LOCAL-00029" summary="refactor(): rename use case files and update namespaces to UseCases">
-      <option name="closed" value="true" />
-      <created>1766054337995</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1766054337995</updated>
-    </task>
-    <task id="LOCAL-00030" summary="refactor(): update namespaces to follow PSR standards and rename use case files">
-      <option name="closed" value="true" />
-      <created>1766428312230</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1766428312230</updated>
-    </task>
-    <task id="LOCAL-00031" summary="refactor(): update namespaces to follow PSR standards and rename use case files">
-      <option name="closed" value="true" />
-      <created>1766429243771</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1766429243771</updated>
-    </task>
-    <task id="LOCAL-00032" summary="refactor(): update namespaces to follow PSR standards and rename use case files">
-      <option name="closed" value="true" />
-      <created>1766429759777</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1766429759778</updated>
-    </task>
-    <task id="LOCAL-00033" summary="refactor(): remove test user creation from DatabaseSeeder and update workspace.xml">
-      <option name="closed" value="true" />
-      <created>1766443594826</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1766443594826</updated>
-    </task>
-    <task id="LOCAL-00034" summary="fix(TaskMapper): correct status value retrieval in task mapping">
-      <option name="closed" value="true" />
-      <created>1766756475572</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1766756475573</updated>
+      <workItem from="1767724169547" duration="1607000" />
+      <workItem from="1767994800110" duration="82000" />
+      <workItem from="1767994914142" duration="3134000" />
+      <workItem from="1768047327448" duration="4304000" />
     </task>
     <task id="LOCAL-00035" summary="test(Task): add unit tests for TaskMapper and EloquentTaskRepository">
       <option name="closed" value="true" />
@@ -710,25 +617,109 @@
       <option name="project" value="LOCAL" />
       <updated>1767463181212</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="feat(Persistence): refactor EloquentUserRepository and create UserRepository interface">
+      <option name="closed" value="true" />
+      <created>1767996732850</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1767996732851</updated>
+    </task>
+    <task id="LOCAL-00073" summary="feat(Commands): implement transaction management in CreateTaskCommand">
+      <option name="closed" value="true" />
+      <created>1767997697470</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1767997697470</updated>
+    </task>
+    <task id="LOCAL-00074" summary="feat(Commands): implement transaction management in CreateTokenCommand">
+      <option name="closed" value="true" />
+      <created>1768047350729</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1768047350730</updated>
+    </task>
+    <task id="LOCAL-00075" summary="feat(Commands): implement transaction management in CreateUserCommand">
+      <option name="closed" value="true" />
+      <created>1768047363814</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1768047363814</updated>
+    </task>
+    <task id="LOCAL-00076" summary="feat(Commands): implement transaction management in DeleteTaskCommand">
+      <option name="closed" value="true" />
+      <created>1768047386526</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1768047386526</updated>
+    </task>
+    <task id="LOCAL-00077" summary="feat(Commands): implement transaction management in DeleteUserCommand">
+      <option name="closed" value="true" />
+      <created>1768047397845</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1768047397847</updated>
+    </task>
+    <task id="LOCAL-00078" summary="feat(Commands): implement transaction management in RevokeAllUserTokensCommand">
+      <option name="closed" value="true" />
+      <created>1768047409495</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1768047409495</updated>
+    </task>
+    <task id="LOCAL-00079" summary="feat(Commands): implement transaction management in RevokeTokenCommand">
+      <option name="closed" value="true" />
+      <created>1768047454912</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1768047454912</updated>
+    </task>
+    <task id="LOCAL-00080" summary="feat(Commands): implement transaction management in UpdateTaskCommand">
+      <option name="closed" value="true" />
+      <created>1768047479237</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1768047479237</updated>
+    </task>
+    <task id="LOCAL-00081" summary="feat(Commands): implement transaction management in UpdateTokenLastUsedCommand">
+      <option name="closed" value="true" />
+      <created>1768047486775</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1768047486775</updated>
+    </task>
+    <task id="LOCAL-00082" summary="feat(Commands): implement transaction management in UpdateUserCommand">
+      <option name="closed" value="true" />
+      <created>1768047511632</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1768047511632</updated>
+    </task>
+    <task id="LOCAL-00083" summary="feat(Providers): register Token and User repositories with dependency injection">
+      <option name="closed" value="true" />
+      <created>1768047518101</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1768047518101</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat(Task): allow nullable description in task reconstruction" />
-    <MESSAGE value="feat(ExceptionMapper): update INVALID_INPUT mapping to return 422 Unprocessable Entity" />
-    <MESSAGE value="feat(TaskResource): create TaskResource for serializing Task entity to JSON" />
-    <MESSAGE value="feat(TaskController): update task responses to use TaskResource for serialization" />
-    <MESSAGE value="refactor(workspace): update task comments and adjust local tasks counter" />
-    <MESSAGE value="chore(dependencies): update composer.lock and workspace.xml for package version changes" />
-    <MESSAGE value="feat(UserId): create UserId value object for user identification" />
-    <MESSAGE value="feat(Email): create Email value object for email validation and normalization" />
-    <MESSAGE value="feat(HashedPassword): create HashedPassword value object for secure password handling" />
-    <MESSAGE value="feat(Exceptions): create custom exceptions for invalid email, password, username, and user not found" />
-    <MESSAGE value="feat(Validation): implement user business and invariant validation classes" />
-    <MESSAGE value="feat(User): implement User entity with validation and management methods" />
     <MESSAGE value="feat(tests): add unit tests for Email, HashedPassword, UserId, and User validation" />
     <MESSAGE value="feat(Exceptions): create custom exceptions for invalid plain text token, token timestamp, and token not found" />
     <MESSAGE value="feat(Validation): add TokenBusinessValidation and TokenInvariantValidation classes for token validation" />
@@ -742,7 +733,19 @@
     <MESSAGE value="feat(tests): add unit tests for GetUserByEmailQuery, GetUserByIdQuery, and GetUserByUsernameQuery" />
     <MESSAGE value="test(Validation): update TokenBusinessValidationTest to improve expiration validation cases" />
     <MESSAGE value="feat(tests): add unit tests for CreateUserCommand, DeleteUserCommand, and UpdateUserCommand" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(tests): add unit tests for CreateUserCommand, DeleteUserCommand, and UpdateUserCommand" />
+    <MESSAGE value="feat(Persistence): refactor EloquentUserRepository and create UserRepository interface" />
+    <MESSAGE value="feat(Commands): implement transaction management in CreateTaskCommand" />
+    <MESSAGE value="feat(Commands): implement transaction management in CreateTokenCommand" />
+    <MESSAGE value="feat(Commands): implement transaction management in CreateUserCommand" />
+    <MESSAGE value="feat(Commands): implement transaction management in DeleteTaskCommand" />
+    <MESSAGE value="feat(Commands): implement transaction management in DeleteUserCommand" />
+    <MESSAGE value="feat(Commands): implement transaction management in RevokeAllUserTokensCommand" />
+    <MESSAGE value="feat(Commands): implement transaction management in RevokeTokenCommand" />
+    <MESSAGE value="feat(Commands): implement transaction management in UpdateTaskCommand" />
+    <MESSAGE value="feat(Commands): implement transaction management in UpdateTokenLastUsedCommand" />
+    <MESSAGE value="feat(Commands): implement transaction management in UpdateUserCommand" />
+    <MESSAGE value="feat(Providers): register Token and User repositories with dependency injection" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Providers): register Token and User repositories with dependency injection" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
