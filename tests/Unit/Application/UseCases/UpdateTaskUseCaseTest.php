@@ -2,6 +2,7 @@
 
 use App\Core\Application\Commands\UpdateTaskCommand;
 use App\Core\Application\DTOs\UpdateTaskInputDTO;
+use App\Core\Application\Ports\UnitOfWork;
 use App\Core\Domain\Entities\Task;
 use App\Core\Domain\Enums\TaskStatus;
 use App\Core\Domain\Exceptions\TaskNotFoundException;
@@ -18,15 +19,19 @@ describe('UpdateTaskCommand', function () {
                 description: 'Description'
             );
 
+            $mockUow = mock(UnitOfWork::class);
             $mockTaskRepo = mock(TaskRepository::class);
+            $mockUow->shouldReceive('begin')->once();
+            $mockUow->shouldReceive('tasks')->andReturn($mockTaskRepo);
             $mockTaskRepo->shouldReceive('getTaskById')
                 ->with($taskId)
                 ->once()
                 ->andReturn($existingTask);
             $mockTaskRepo->shouldReceive('save')
                 ->once();
+            $mockUow->shouldReceive('commit')->once();
 
-            $useCase = new UpdateTaskCommand($mockTaskRepo);
+            $useCase = new UpdateTaskCommand($mockUow);
             $input = new UpdateTaskInputDTO(title: 'New Title');
 
             $result = $useCase->execute($taskId, $input);
@@ -44,15 +49,19 @@ describe('UpdateTaskCommand', function () {
                 description: 'Old Description'
             );
 
+            $mockUow = mock(UnitOfWork::class);
             $mockTaskRepo = mock(TaskRepository::class);
+            $mockUow->shouldReceive('begin')->once();
+            $mockUow->shouldReceive('tasks')->andReturn($mockTaskRepo);
             $mockTaskRepo->shouldReceive('getTaskById')
                 ->with($taskId)
                 ->once()
                 ->andReturn($existingTask);
             $mockTaskRepo->shouldReceive('save')
                 ->once();
+            $mockUow->shouldReceive('commit')->once();
 
-            $useCase = new UpdateTaskCommand($mockTaskRepo);
+            $useCase = new UpdateTaskCommand($mockUow);
             $input = new UpdateTaskInputDTO(description: 'New Description');
 
             $result = $useCase->execute($taskId, $input);
@@ -70,15 +79,19 @@ describe('UpdateTaskCommand', function () {
                 description: 'Description'
             );
 
+            $mockUow = mock(UnitOfWork::class);
             $mockTaskRepo = mock(TaskRepository::class);
+            $mockUow->shouldReceive('begin')->once();
+            $mockUow->shouldReceive('tasks')->andReturn($mockTaskRepo);
             $mockTaskRepo->shouldReceive('getTaskById')
                 ->with($taskId)
                 ->once()
                 ->andReturn($existingTask);
             $mockTaskRepo->shouldReceive('save')
                 ->once();
+            $mockUow->shouldReceive('commit')->once();
 
-            $useCase = new UpdateTaskCommand($mockTaskRepo);
+            $useCase = new UpdateTaskCommand($mockUow);
             $input = new UpdateTaskInputDTO(status: TaskStatus::IN_PROGRESS);
 
             $result = $useCase->execute($taskId, $input);
@@ -95,15 +108,19 @@ describe('UpdateTaskCommand', function () {
                 description: 'Old Description'
             );
 
+            $mockUow = mock(UnitOfWork::class);
             $mockTaskRepo = mock(TaskRepository::class);
+            $mockUow->shouldReceive('begin')->once();
+            $mockUow->shouldReceive('tasks')->andReturn($mockTaskRepo);
             $mockTaskRepo->shouldReceive('getTaskById')
                 ->with($taskId)
                 ->once()
                 ->andReturn($existingTask);
             $mockTaskRepo->shouldReceive('save')
                 ->once();
+            $mockUow->shouldReceive('commit')->once();
 
-            $useCase = new UpdateTaskCommand($mockTaskRepo);
+            $useCase = new UpdateTaskCommand($mockUow);
             $input = new UpdateTaskInputDTO(
                 title: 'New Title',
                 description: 'New Description',
@@ -126,15 +143,19 @@ describe('UpdateTaskCommand', function () {
                 description: 'Original Description'
             );
 
+            $mockUow = mock(UnitOfWork::class);
             $mockTaskRepo = mock(TaskRepository::class);
+            $mockUow->shouldReceive('begin')->once();
+            $mockUow->shouldReceive('tasks')->andReturn($mockTaskRepo);
             $mockTaskRepo->shouldReceive('getTaskById')
                 ->with($taskId)
                 ->once()
                 ->andReturn($existingTask);
             $mockTaskRepo->shouldReceive('save')
                 ->once();
+            $mockUow->shouldReceive('commit')->once();
 
-            $useCase = new UpdateTaskCommand($mockTaskRepo);
+            $useCase = new UpdateTaskCommand($mockUow);
             $input = new UpdateTaskInputDTO(title: 'Updated Title');
 
             $result = $useCase->execute($taskId, $input);
@@ -152,14 +173,18 @@ describe('UpdateTaskCommand', function () {
                 description: 'Description'
             );
 
+            $mockUow = mock(UnitOfWork::class);
             $mockTaskRepo = mock(TaskRepository::class);
+            $mockUow->shouldReceive('begin')->once();
+            $mockUow->shouldReceive('tasks')->andReturn($mockTaskRepo);
             $mockTaskRepo->shouldReceive('getTaskById')
                 ->with($taskId)
                 ->once()
                 ->andReturn($existingTask);
             $mockTaskRepo->shouldReceive('save');
+            $mockUow->shouldReceive('commit')->once();
 
-            $useCase = new UpdateTaskCommand($mockTaskRepo);
+            $useCase = new UpdateTaskCommand($mockUow);
             $input = new UpdateTaskInputDTO(title: 'New Title');
 
             $useCase->execute($taskId, $input);
@@ -173,13 +198,17 @@ describe('UpdateTaskCommand', function () {
                 description: 'Description'
             );
 
+            $mockUow = mock(UnitOfWork::class);
             $mockTaskRepo = mock(TaskRepository::class);
+            $mockUow->shouldReceive('begin')->once();
+            $mockUow->shouldReceive('tasks')->andReturn($mockTaskRepo);
             $mockTaskRepo->shouldReceive('getTaskById')
                 ->andReturn($existingTask);
             $mockTaskRepo->shouldReceive('save')
                 ->once();
+            $mockUow->shouldReceive('commit')->once();
 
-            $useCase = new UpdateTaskCommand($mockTaskRepo);
+            $useCase = new UpdateTaskCommand($mockUow);
             $input = new UpdateTaskInputDTO(title: 'New Title');
 
             $useCase->execute($taskId, $input);
@@ -188,13 +217,17 @@ describe('UpdateTaskCommand', function () {
         it('throws TaskNotFoundException when task does not exist', function () {
             $taskId = new TaskId('f47ac10b-58cc-4372-a567-0e02b2c3d479');
 
+            $mockUow = mock(UnitOfWork::class);
             $mockTaskRepo = mock(TaskRepository::class);
+            $mockUow->shouldReceive('begin')->once();
+            $mockUow->shouldReceive('tasks')->andReturn($mockTaskRepo);
             $mockTaskRepo->shouldReceive('getTaskById')
                 ->with($taskId)
                 ->once()
                 ->andThrow(new TaskNotFoundException($taskId));
+            $mockUow->shouldReceive('rollback')->once();
 
-            $useCase = new UpdateTaskCommand($mockTaskRepo);
+            $useCase = new UpdateTaskCommand($mockUow);
             $input = new UpdateTaskInputDTO(title: 'New Title');
 
             expect(fn() => $useCase->execute($taskId, $input))
@@ -204,15 +237,19 @@ describe('UpdateTaskCommand', function () {
         it('does not call save when task does not exist', function () {
             $taskId = new TaskId('f47ac10b-58cc-4372-a567-0e02b2c3d479');
 
+            $mockUow = mock(UnitOfWork::class);
             $mockTaskRepo = mock(TaskRepository::class);
+            $mockUow->shouldReceive('begin')->once();
+            $mockUow->shouldReceive('tasks')->andReturn($mockTaskRepo);
             $mockTaskRepo->shouldReceive('getTaskById')
                 ->with($taskId)
                 ->once()
                 ->andThrow(new TaskNotFoundException($taskId));
             $mockTaskRepo->shouldReceive('save')
                 ->never();
+            $mockUow->shouldReceive('rollback')->once();
 
-            $useCase = new UpdateTaskCommand($mockTaskRepo);
+            $useCase = new UpdateTaskCommand($mockUow);
             $input = new UpdateTaskInputDTO(title: 'New Title');
 
             try {
@@ -230,12 +267,16 @@ describe('UpdateTaskCommand', function () {
                 description: 'Description'
             );
 
+            $mockUow = mock(UnitOfWork::class);
             $mockTaskRepo = mock(TaskRepository::class);
+            $mockUow->shouldReceive('begin')->once();
+            $mockUow->shouldReceive('tasks')->andReturn($mockTaskRepo);
             $mockTaskRepo->shouldReceive('getTaskById')
                 ->andReturn($existingTask);
             $mockTaskRepo->shouldReceive('save');
+            $mockUow->shouldReceive('commit')->once();
 
-            $useCase = new UpdateTaskCommand($mockTaskRepo);
+            $useCase = new UpdateTaskCommand($mockUow);
             $input = new UpdateTaskInputDTO(title: 'Updated Title');
 
             $result = $useCase->execute($taskId, $input);
