@@ -3,35 +3,51 @@
 namespace App\Core\Application\Commands;
 
 use App\Core\Application\DTOs\CreateUserInputDTO;
+use App\Core\Application\Ports\UnitOfWork;
 use App\Core\Application\Shared\IdGenerator;
 use App\Core\Domain\Entities\User;
-use App\Core\Domain\Repositories\UserRepository;
+use Throwable;
 
 /**
  * Creates a new user in the system.
+ * Uses UnitOfWork to manage transaction with automatic rollback on failure.
  */
 final readonly class CreateUserCommand
 {
     public function __construct(
-        private UserRepository $userRepo,
+        private UnitOfWork $uow,
         private IdGenerator $idGenerator
     ) {}
 
     /**
      * Executes user creation with generated ID.
+     * Rolls back on any failure.
+     *
+     * @param CreateUserInputDTO $input User creation data
+     * @return User The created user entity
+     * @throws Throwable If user creation fails
      */
     public function execute(CreateUserInputDTO $input): User {
-        $genUserId = $this->idGenerator->generate();
+        try {
+            $this->uow->begin();
 
-        $user = User::create(
-            id: $genUserId,
-            username: $input->username,
-            email: $input->email,
-            plainPassword: $input->plainPassword
-        );
+            $genUserId = $this->idGenerator->generate();
 
-        $this->userRepo->save($user);
+            $user = User::create(
+                id: $genUserId,
+                username: $input->username,
+                email: $input->email,
+                plainPassword: $input->plainPassword
+            );
 
-        return $user;
+            $this->uow->users()->save($user);
+
+            $this->uow->commit();
+
+            return $user;
+        } catch (Throwable $e) {
+            $this->uow->rollback();
+            throw $e;
+        }
     }
 }
